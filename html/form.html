@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    </meta>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>perloansnationwide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' href='../css/index.css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.0/jquery-migrate.min.js"></script> -->
+    
+    
+</head>
+
+<body>
+   <!-- header -->
+
+   <header>
+        <div class="container">
+            <div class="row align-items-center pt-2">
+                <div class="col-lg-5 col-md-6 text-center col-12">
+                    <img src="../images/log.webp" alt="" class="logo">
+                </div>
+                <div class="col-lg-3 col-md-6 text-md-end text-center col-12">
+                    <div class="phone">
+                        <a href="">
+                            <span class="phone-bg"><img src="../images/phone.svg" alt=""></span>
+                            <span class="phone-txt">1-866-780-0274</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 text-lg-end text-sm-center text-center col-12">
+                    <a href="#form" class="button-link" role="button">Received Mail Offer?</a>
+                </div>
+                <div class="col-lg-1 col-md-6 text-lg-end text-md-end text-center col-12">
+                    <img src="../images/Group 4.svg" alt="" class="mobile-bar">
+                </div>
+            </div>
+        </div>
+   </header>
+
+   <!-- Hero -->
+
+    <div class="hero2 pt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">   
+                   <h1 class="hero2-title text-center">Get a quick, <span>Free Quote</span></h1>
+                   <p class="hero2-para-1 text-center">Start the conversation. Please fill out the form now.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- MultiStep Form -->
+    <div class="container pb-3">
+        <div class="row">
+            <div class="col-lg-12">
+               
+                <form id="signUpForm" action="#!">
+                    <!-- start step indicators -->
+                    <div class="form-header d-lg-flex">
+                        <span class="stepIndicator">1</span>
+                        <span class="stepIndicator">2</span>
+                        <span class="stepIndicator">3</span>
+                        <span class="stepIndicator">4</span>
+                    </div>
+                    <!-- end step indicators -->
+                
+                    <!-- step one -->
+                    <div class="step">
+                        
+                        <div class="box mb-5">
+                            <h6 class="code-title">Your Reservation Code</h6>
+                            <p class="code-txt">(if you received an email offer)</p>
+                            <input type="text" placeholder="CC116444" name="coupon-code" id="rev-code">
+                            <button type="button" id="app-btn">Apply Code</button>
+                        </div>
+                        <div class="box">
+                            <label for="">First Name</label>
+                            <input type="text" placeholder="Rene" oninput="this.className = ''" name="First Name">
+                            <label for="">Last Name</label>
+                            <input type="text" placeholder="Rojano" oninput="this.className = ''" name="Last Name">
+                            <label for="">Email *</label>
+                            <input type="email" placeholder="rene@gmail.com" oninput="this.className = ''" name="email">
+                            <label for="">Phone *</label>
+                            <input type="number" placeholder="7145769879" oninput="this.className = ''" name="phone">
+                        </div>
+                        
+                    </div>
+                
+                    <!-- step two -->
+                    <div class="step">
+                        <div class="box">
+                            <label for="">Income *</label>
+                            <input type="number" placeholder="$ 888,000" oninput="this.className = ''" name="income">
+                            <label for="">Loan Amount *</label>
+                            <select name="form_fields_loan" id="form-field-loan" required="required" aria-required="true">
+                                <option value="Select Loan Amount">Select Loan Amount</option>
+                                <option value="$7,500-$14,999">$7,500-$14,999</option>
+                                <option value="$15,000-$29,999">$15,000-$29,999</option>
+                                <option value="$30,000-$74,999">$30,000-$74,999</option>
+                                <option value="$75,000+">$75,000+</option>
+                            </select>
+                            <label for="">Loan Purpose *</label>
+                            <select name="form_fields_loan_purpose" id="form-field-loan_purpose"  required="required" aria-required="true">
+                                <option value="Select Loan Purpose">Select Loan Purpose</option>
+                                <option value="Home Improvement">Home Improvement</option>
+                                <option value="Pay off Credit Cards">Pay off Credit Cards</option>
+                                <option value="Consolidate Debt">Consolidate Debt</option>
+                                <option value="Refinance my Car">Refinance my Car</option>
+                                <option value="Something Else">Something Else</option>
+                            </select>
+                        </div>
+                    </div>
+                
+                    <!-- step three -->
+                    <div class="step">
+                        <div class="box">
+                            <label for="">Address</label>
+                            <input type="text" placeholder="6097 Roosevelt Dr." oninput="this.className = ''" name="Address">
+                            <label for="">City</label>
+                            <input type="text" placeholder="Ketchikan" oninput="this.className = ''" name="Ketchikan">
+                            <label for="">Zip</label>
+                            <input type="number" placeholder="99901-9728" oninput="this.className = ''" name="zip">
+                            <label for="">State</label>
+                            <input type="text" placeholder="AK" oninput="this.className = ''" name="State">
+                        </div>
+                    </div>
+                    <!-- step four -->
+                    <div class="step">
+                        <p class="form-notice">Kindly Fill the details below in order to fill your successful submission</p>
+                        <div class="box">
+                            <label for="">Social Security Number</label>
+                            <input type="text"  oninput="this.className = ''" name="s-number">
+                            <label for="">D.O.B</label>
+                            <input type="text"  oninput="this.className = ''" name="dob">
+                            <input type="checkbox" id="score" name="score" value="I give consent to do a soft redit check that
+                            won’t impact my credit score.">
+                            <label for="vehicle1" class="score-lbl">I give consent to do a soft redit check that
+                                won’t impact my credit score.</label><br>
+                        </div>
+                    </div>
+                
+                    <!-- start previous / next buttons -->
+                    <div class="form-footer d-flex my-4">
+                        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Back</button>
+                        <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                    </div>
+                    <!-- end previous / next buttons -->
+                </form>
+               
+            </div>
+        </div>
+    </div>
+    
+    <!-- /.MultiStep Form -->
+
+
+    <!-- footer -->
+    <div class="footer form-footer">
+        <div class="container">
+            <div class="row justify-content-center align-items-center mb-4">
+                <div class="col-lg-6">
+                    <img src="../images/Nationwide-Logo-Large.webp" alt="" class="footer-logo" width="163">
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="social-share">
+                        <a href=""><img src="../images/Facebook.svg" alt="" ></a>
+                        <a href=""><img src="../images/Mask group.svg" alt="" ></a>
+                    </div>
+                    
+                </div>
+            </div>
+            <hr>
+            <p class="dis text-center mt-5 mb-4">Disclaimer</p>
+            <p class="declimer">Nationwide Financial LLC provides loan referral services. Loans are not available in all states. Loans will be fulfilled via our preferred network of third-party lenders. Your loan agreement will clearly identify the lender. Nationwide Financial LLC has no control over participating third-party lender credit worthiness eligibility criteria. APR/Interest rates will vary depending on individual lender terms. Generally, all individuals applying for credit must be a U.S. citizen or permanent resident and at least 18 years old. Valid bank account and Social Security Number/FEIN are required. All loan applications are subject to credit review and approval. You authorize us to make inquiries and obtain and confirm information about you as we deem appropriate for the purpose of evaluating your eligibility for this extension of credit, including obtaining credit reports, verifying your income. You also authorize us to provide identification information about you, and our credit experience information with you to others in accordance with applicable law. *Annual Percentage Rates. Not all borrowers will qualify for the same rate when a rate is listed “as low as”. Qualifying for rates listed “as low as” are based on the borrower’s credit worthiness, which includes factors such as debt ratio and credit history. Interest rates will vary and are based on lender terms. Ranges from 4.95%-36%. All loans may be subject to origination fees ranging from 1% – 5%, of the loan amount, if permitted under applicable state law.</p>
+            
+            <hr class="mt-5 mb-4">
+            <p class="copywrite text-center">Nationwide Financial LLC© 2021. All rights reserved.</p>
+        </div>
+    </div>
+   
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" ></script>
+    <script>
+       jQuery( document ).ready(function() {
+
+            jQuery('label.contain-one').click(function() {
+                jQuery('label').attr('id', "");
+                jQuery(this).attr('id', "checke");
+            });
+
+            jQuery('label.contain').click(function() {
+                jQuery('label').attr('id', "");
+                jQuery("#checkMob input").attr('checked', "");
+                jQuery(this).attr('id', "checkMob");
+                jQuery("#checkMob input").attr('checked', "checked");
+            });
+
+        });
+        
+        var currentTab = 0; // Current tab is set to be the first tab (0)
+        showTab(currentTab); // Display the current tab
+        
+        function showTab(n) {
+          // This function will display the specified tab of the form...
+          var x = document.getElementsByClassName("step");
+          x[n].style.display = "block";
+          //... and fix the Previous/Next buttons:
+          if (n == 0) {
+            document.getElementById("prevBtn").style.display = "none";
+          } else {
+            document.getElementById("prevBtn").style.display = "inline";
+          }
+          if (n == (x.length - 1)) {
+            document.getElementById("nextBtn").innerHTML = "Finish";
+          } else {
+            document.getElementById("nextBtn").innerHTML = "Next";
+          }
+          //... and run a function that will display the correct step indicator:
+          fixStepIndicator(n)
+        }
+        
+        function nextPrev(n) {
+          // This function will figure out which tab to display
+          var x = document.getElementsByClassName("step");
+          // Exit the function if any field in the current tab is invalid:
+         if (n == 1 && !validateForm()) return false;
+          // Hide the current tab:
+          x[currentTab].style.display = "none";
+          // Increase or decrease the current tab by 1:
+          currentTab = currentTab + n;
+          // if you have reached the end of the form...
+          if (currentTab >= x.length) {
+            // ... the form gets submitted:
+            document.getElementById("signUpForm").submit();
+            return false;
+          }
+          // Otherwise, display the correct tab:
+          showTab(currentTab);
+        }
+        
+        function validateForm() {
+          // This function deals with validation of the form fields
+          var x, y, i, valid = true;
+          x = document.getElementsByClassName("step");
+          y = x[currentTab].getElementsByTagName("input");
+          // A loop that checks every input field in the current tab:
+          for (i = 0; i < y.length; i++) {
+            // If a field is empty...
+            if (y[i].value == "") {
+              // add an "invalid" class to the field:
+              y[i].className += " invalid";
+              // and set the current valid status to false
+              valid = false;
+            }
+          }
+          // If the valid status is true, mark the step as finished and valid:
+          if (valid) {
+            document.getElementsByClassName("stepIndicator")[currentTab].className += " finish";
+          }
+          return valid; // return the valid status
+        }
+        
+        function fixStepIndicator(n) {
+          // This function removes the "active" class of all steps...
+          var i, x = document.getElementsByClassName("stepIndicator");
+          for (i = 0; i < x.length; i++) {
+            x[i].className = x[i].className.replace(" active", "");
+          }
+          //... and adds the "active" class on the current step:
+          x[n].className += " active";
+        }
+
+    </script>
+</body>
+
+</html>
