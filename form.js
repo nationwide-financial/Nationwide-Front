@@ -1,7 +1,6 @@
-var loanamount, loanpurpose = 0;
-//var income, loanamount, loanpurpose = 0;
-//var address, city, zip, state, socialseq = ""
-//var socialseq, e, x = "";
+var income, loanamount, loanpurpose = 0;
+var address, city, zip, state, socialseq = ""
+var socialseq, e, x = "";
 var dob = 0;
 
 function onPageLoad() {
@@ -166,18 +165,9 @@ function onFinished() {
     // Adding method type
     method: "POST",
     mode: 'no-cors',
-    "statusCode": 200,
-
-        
-         // Adding headers to the request
-   "headers": {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'POST',
-        'Access-Control-Allow-Headers': 'Content-Type'
-      },
+     
     // Adding body or contents to send
-    "body": JSON.stringify({
+    body: JSON.stringify({
         "contactid": "Ss1234",
         "first_name": fname,
         "middle_name": middleName,
@@ -208,8 +198,14 @@ function onFinished() {
         "user_s_number": socialseq,
         "user_dob": dob,
     }),
-             
-   "isBase64Encoded": false     
+     
+    // Adding headers to the request
+    headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST',
+        'Access-Control-Allow-Headers': 'Content-Type'
+      },
 })
  
 // Converting to JSON
