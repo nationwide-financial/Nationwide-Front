@@ -12,6 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel='stylesheet' type='text/css' href='css/index.css'>
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="script.js"></script>
     
 </head>
 
@@ -276,7 +277,7 @@
                         <h2 class="form-area-heading text-center chng-lang" data-en="GET A QUICK, FREE QUOTE" data-es="Obtenga una cotización rápida y gratuita">GET A QUICK, FREE QUOTE</h2>
                         <h3 class="form-area-subheading text-center area-lang" >Start the conversation.<br>Please fill out the form below.</h3>
                         <h3 class="form-area-subheading text-center area-lang-es" >Empieza la conversación. Por favor, rellene el siguiente formulario.</h3>
-                        <form action="">
+                        <form action="" method="post" id="form1">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="code" placeholder="RESERVATION CODE (optional)">
                             </div>
@@ -289,7 +290,7 @@
                             <div class="form-group">
                                 <input type="email" class="form-control" id="email" placeholder="PRIMARY EMAIL">
                             </div>
-                            <button type="submit" class="btn btn-default sbt b-hover">GET STARTED</button>
+                            <button type="button" onClick="onSubmit()" class="btn btn-default sbt b-hover">GET STARTED</button>
                         </form>
                         <p class="form-txt">*Will not affect your Credit Score. -</p>
                     </div>
