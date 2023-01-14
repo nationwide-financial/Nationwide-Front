@@ -76,24 +76,24 @@
                     </div>
                     <!-- end step indicators -->
                 
+                    
+                    <div class="box mb-5">
+                        <h6 class="code-title">Your Reservation Code</h6>
+                        <p class="code-txt">(if you received an email offer)</p>
+                        <input type="text" placeholder="" name="coupon-code" id="rev-code">
+                        <button type="button" onClick="getReservationCode()" id="app-btn">Apply Code</button>
+                    </div>
                     <!-- step one -->
                     <div class="step">
-                        
-                        <div class="box mb-5">
-                            <h6 class="code-title">Your Reservation Code</h6>
-                            <p class="code-txt">(if you received an email offer)</p>
-                            <input type="text" placeholder="" name="coupon-code" id="rev-code">
-                            <button type="button" id="app-btn">Apply Code</button>
-                        </div>
                         <div class="box">
                             <label for="">First Name</label>
-                            <input type="text" placeholder="Rene" oninput="this.className = ''" name="First Name">
+                            <input type="text" placeholder="" oninput="this.className = ''" name="First Name" id="fname">
                             <label for="">Last Name</label>
-                            <input type="text" placeholder="Rojano" oninput="this.className = ''" name="Last Name">
+                            <input type="text" placeholder="" oninput="this.className = ''" name="Last Name" id="lname">
                             <label for="">Email *</label>
-                            <input type="email" placeholder="rene@gmail.com" oninput="this.className = ''" name="email">
+                            <input type="email" placeholder="" oninput="this.className = ''" name="email" id="email">
                             <label for="">Phone *</label>
-                            <input type="number" placeholder="7145769879" oninput="this.className = ''" name="phone">
+                            <input type="text" placeholder="" oninput="this.className = ''" name="phone" id="phone">
                         </div>
                         
                     </div>
@@ -102,7 +102,7 @@
                     <div class="step">
                         <div class="box">
                             <label for="">Income *</label>
-                            <input type="number" placeholder="$ 888,000" oninput="this.className = ''" name="income">
+                            <input type="number" placeholder="$ 888,000" oninput="this.className = ''" name="income" id="income">
                             <label for="">Loan Amount *</label>
                             <select name="form_fields_loan" id="form-field-loan" required="required" aria-required="true">
                                 <option value="Select Loan Amount">Select Loan Amount</option>
@@ -127,13 +127,13 @@
                     <div class="step">
                         <div class="box">
                             <label for="">Address</label>
-                            <input type="text" placeholder="6097 Roosevelt Dr." oninput="this.className = ''" name="Address">
+                            <input type="text" placeholder="6097 Roosevelt Dr." oninput="this.className = ''" name="Address" id="address">
                             <label for="">City</label>
-                            <input type="text" placeholder="Ketchikan" oninput="this.className = ''" name="Ketchikan">
+                            <input type="text" placeholder="Ketchikan" oninput="this.className = ''" name="city" id="city">
                             <label for="">Zip</label>
-                            <input type="number" placeholder="99901-9728" oninput="this.className = ''" name="zip">
+                            <input type="number" placeholder="99901-9728" oninput="this.className = ''" name="zip" id="zip">
                             <label for="">State</label>
-                            <input type="text" placeholder="AK" oninput="this.className = ''" name="State">
+                            <input type="text" placeholder="AK" oninput="this.className = ''" name="State" id="state">
                         </div>
                     </div>
                     <!-- step four -->
@@ -141,9 +141,9 @@
                         <p class="form-notice">Kindly Fill the details below in order to fill your successful submission</p>
                         <div class="box">
                             <label for="">Social Security Number</label>
-                            <input type="text"  oninput="this.className = ''" name="s-number">
+                            <input type="text"  oninput="this.className = ''" name="s-number" id="s-number">
                             <label for="">D.O.B</label>
-                            <input type="text"  oninput="this.className = ''" name="dob">
+                            <input type="date"  oninput="this.className = ''" name="dob" id="dob">
                             <input type="checkbox" id="score" name="score" value="I give consent to do a soft redit check that
                             won’t impact my credit score.">
                             <label for="vehicle1" class="score-lbl">I give consent to do a soft redit check that
@@ -225,6 +225,9 @@
           }
           if (n == (x.length - 1)) {
             document.getElementById("nextBtn").innerHTML = "Finish";
+            if(document.getElementById("nextBtn").innerHTML === "Finish") {
+                document.getElementById("nextBtn").onclick = onFinished
+            }
           } else {
             document.getElementById("nextBtn").innerHTML = "Next";
           }
