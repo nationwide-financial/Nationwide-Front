@@ -206,6 +206,8 @@ function onFinished() {
         'Access-Control-Allow-Methods': 'POST',
         'Access-Control-Allow-Headers': 'Content-Type'
       },
+        
+   "isBase64Encoded": false     
 })
  
 // Converting to JSON
