@@ -29,7 +29,21 @@ function onPageLoad() {
 
         //Step Four
         document.getElementById("s-number").value = data[0].user_s_number;
-        document.getElementById("dob").value = data[0].user_dob;
+        let timestamp = data[0].user_dob;
+        let currentDate = new Date(timestamp);
+        
+        let month = currentDate.getMonth() + 1; // getMonth() returns a 0-based index, so we add 1
+        let day = currentDate.getDate();
+        let year = currentDate.getFullYear();
+        let newmonth = month < 10 ?'0'+month:month;
+        let newday = day < 10 ?'0'+day:day;
+
+        let formattedDate = `${year}-${newmonth}-${newday}`;
+        console.log(formattedDate); // Output: "1-10-2023"
+
+        
+        console.log("check date", formattedDate)
+        document.getElementById("dob").value = formattedDate;
 
     } else {
         //Step One
@@ -51,10 +65,23 @@ function onPageLoad() {
     //  localStorage.removeItem('data')
 }
 
+var url="https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/"
+
 function getReservationCode() {
     var revCode = document.getElementById("rev-code").value;
     if (revCode !== "") {
-        fetch('https://els6tc7eroa6blwd2d3pfcprvu0cmjps.lambda-url.us-east-1.on.aws/users/' + revCode)
+        fetch(url + revCode,
+            {
+                headers: {
+                    
+                    'Accept': '*/*',
+                    'Access-Control-Allow-Headers': "*",
+                    'Access-Control-Allow-Origin': '*'
+                    
+                  },
+            }
+        
+        )
             .then((response) => {
                 console.log(response.status)
                 if (response.status === 404) {
@@ -74,9 +101,17 @@ function getReservationCode() {
 }
 
 function onFinished() {
+    var score = document.getElementById("score").checked;
+    if (!score){
+        alert("Click the accept button.");
+        document.getElementById("score").focus();
+        return
+    }
     // alert("finished")
+    var contactId = document.getElementById("rev-code").value;
+
     //Step One
-    var fname = document.getElementById("fname").value
+    var fname = document.getElementById("fname").value;
     // var fname = localStorage.getItem("fistName");
     var lname = document.getElementById("lname").value;
     //  var middleName = document.getElementById("middleName").value;
@@ -98,16 +133,38 @@ function onFinished() {
     var zip = document.getElementById("zip").value;
     var state = document.getElementById("state").value;
 
+     
     //Step four
     var socialseq = document.getElementById("s-number").value;
     var dob = document.getElementById("dob").value;
 
     var id = generateRandomString(5);
+    var postid = "";
+    var fmmethod = "";
     var uurl = "https://#";
-    var temprecord = "";
+    var temprecord = "Null";
+    var url = ""
+
+    console.log("test id", contactId)
+    if (contactId !== ""){
+        postid = contactId;
+        fmmethod = "PUT";
+        url="https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/" + contactId;
+        
+        
+
+    }else{
+        postid = id;
+        fmmethod = "POST";
+        url="https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/";
+
+        if(confirm("Data Saved!")) {
+            window.location.href = "index.html";
+        }
+    }
 
     var user = {
-        "contactid": id,
+        "contactid": postid,
         "first_name": fname,
         "middle_name": middleName,
         "last_name": lname,
@@ -151,6 +208,7 @@ function onFinished() {
     //     Cache: 'default'
     //   })
 
+
     // fetch('https://els6tc7eroa6blwd2d3pfcprvu0cmjps.lambda-url.us-east-1.on.aws/users', {
     //     Method: 'POST',
     //     Body: JSON.stringify(user)
@@ -160,61 +218,56 @@ function onFinished() {
     //     console.log(data)
     // }).catch(error => console.error('Error:', error));
 
-    fetch("https://els6tc7eroa6blwd2d3pfcprvu0cmjps.lambda-url.us-east-1.on.aws/users/", {
-     
-    // Adding method type
-    method: "POST",
-    mode: 'no-cors',
-     
-    // Adding body or contents to send
-    body: JSON.stringify({
-        "contactid": "Ss1234",
-        "first_name": fname,
-        "middle_name": middleName,
-        "last_name": lname,
-        "combined_name_field": fullName,
-        "sec_primary_address": address,
-        "primary_address": address + city + zip + state,
-        "company": temprecord,
-        "urbanization": temprecord,
-        "city_state_zip": zip,
-        "ase": temprecord,
-        "oel": temprecord,
-        "presorttrayid": temprecord,
-        "presortdate": temprecord,
-        "imbno": temprecord,
-        "encodedimbno": address,
-        "stdaddr_citynme": city,
-        "stdaddr_statecde": state,
-        "stdaddr_zipcde": zip,
-        "qr_code": id,
-        "qr_code_url": uurl,
-        "user_email": email,
-        "user_phone": phone,
-        "user_income": income,
-        "user_loan_amount": loanamount,
-        "user_loan_purpose": loanpurpose,
-        "user_address_one": address,
-        "user_s_number": socialseq,
-        "user_dob": dob,
-    }),
-     
-    // Adding headers to the request
-    headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'POST',
-        'Access-Control-Allow-Headers': 'Content-Type'
-      },
-})
- 
-// Converting to JSON
-.then(response => response.json())
- 
-// Displaying results to console
-.then(json => console.log(json));
+    //var url="https://els6tc7eroa6blwd2d3pfcprvu0cmjps.lambda-url.us-east-1.on.aws/users/"
 
-}
+    
+
+    //var url="https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/"
+
+    if (url){
+        fetch(url, {
+     
+            // Adding method type
+            method: fmmethod,
+            //mode: 'no-cors',
+             
+            // Adding body or contents to send
+            body: JSON.stringify(user),
+        
+            //credentials: 'include',
+             //'Access-Control-Allow-Credentials': true,
+            // Adding headers to the request
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': '*/*',
+                'Access-Control-Allow-Headers': "*",
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': fmmethod
+              },
+            
+        })
+         
+        // Converting to JSON
+        //.then(response => response.json())
+         
+        // Displaying results to console
+        .then(res => 
+            {
+                if(res.status == 200 || res.status == 201) {
+                   window.location.href = "index.html";
+                }
+                console.log(res);
+            }
+            
+        ) 
+        
+        }
+        
+    }
+
+    
+
+
 
 function generateRandomString(length) {
     var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

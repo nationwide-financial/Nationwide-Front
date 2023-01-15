@@ -4,8 +4,9 @@ function onSubmit() {
     var number = document.getElementById("number").value;
     var email = document.getElementById("email").value;
     console.log('code', code);
+    var url="https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/"
     if (code !== "") {
-        fetch('https://els6tc7eroa6blwd2d3pfcprvu0cmjps.lambda-url.us-east-1.on.aws/users/' + code)
+        fetch(url + code)
             .then((response) => {
                 console.log(response.status)
                 if (response.status === 404) {
