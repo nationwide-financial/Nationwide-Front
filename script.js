@@ -4,7 +4,7 @@ function onSubmit() {
     var number = document.getElementById("number").value;
     var email = document.getElementById("email").value;
     console.log('code', code);
-    var url="https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/"
+    var url = "https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/"
     if (code !== "") {
         fetch(url + code)
             .then((response) => {
@@ -23,24 +23,74 @@ function onSubmit() {
                         // localStorage.setItem("fullName", data[0].combined_name_field);
                         // localStorage.setItem("number", number);
                         // localStorage.setItem("email", email);
-                        
+
                         window.location.href = "form.html";
                     });
                 }
             })
     } else {
-        var { fistName, middleName, lastName, fullName } = getNames(name);
-        localStorage.setItem("data", "");
-        localStorage.setItem("contactId", code);
-        localStorage.setItem("fistName", fistName);
-        localStorage.setItem("middleName", middleName);
-        localStorage.setItem("lastName", lastName);
-        localStorage.setItem("fullName", fullName);
-        localStorage.setItem("number", number);
-        localStorage.setItem("email", email);
-        window.location.href = "form.html";
+        var fname = document.getElementById("name").value;
+        var { fistName, middleName, lastName, fullName } = getNames(fname);
+        var phone = document.getElementById("number").value;
+        var email = document.getElementById("email").value;
+        
+        //var postid = generateRandomString(5);
+        
+        
+        // if (confirm("Data Saved!")) {
+        //         window.location.href = "index.html";
+        //     }
+
+        var user = {
+            "first_name": fistName,
+            "middle_name": middleName,
+            "last_name": lastName,
+            "combined_name_field": fullName,            
+            "user_email": email,
+            "user_phone": phone
+        }
+
+        // alert(JSON.stringify(user))
+        console.log(JSON.stringify(user));
+
+        var url = 'https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/createLeads'
+        
+
+
+        if (url) {
+            fetch(url, {
+                // Adding method type
+                method: 'POST',
+                // Adding body or contents to send
+                body: JSON.stringify(user),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': '*/*',
+                    'Access-Control-Allow-Headers': "*",
+                    'Access-Control-Allow-Origin': '*'
+                },
+            })
+                .then(res => {
+                    if (res.status == 200 || res.status == 201) {
+                        window.location.href = "index.html";
+                        alert("Record Saved Check Your Email!.");
+                    }
+                    console.log(res);
+                }
+
+                )
+
+        }
     }
 }
+
+function generateRandomString(length) {
+    var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    var result = "";
+    for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+    return result;
+}
+
 
 function getNames(fullName) {
     var fistName = "";
@@ -65,3 +115,4 @@ function getNames(fullName) {
     }
     return { fistName, middleName, lastName, fullName };
 }
+
