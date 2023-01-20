@@ -13,6 +13,102 @@
     <link rel='stylesheet' type='text/css' href='css/index.css'>
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="script.js"></script>
+    <style>
+@media only screen and (min-width: 660px) {
+a.button-link {
+  font-size: 14px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 20px;
+  background-color: #0b72f1;
+  border-radius: 7px 7px 7px 7px;
+  padding: 18px 20px 18px 20px;
+  color: #fff;
+  display: inline-block;
+}
+ img.logo1 {
+  max-width: 22vw;
+}
+          }
+
+@media only screen and (max-width: 660px) {
+ a.button-link {
+  font-size: 8px;
+  font-weight: 700;
+  font-style: normal;
+  background-color: #0b72f1;
+  border-radius: 7px 7px 7px 7px;
+  padding: 5px 10px 5px 10px;
+  color: #fff;
+  display: inline-block;
+}
+span.phone-txt {
+  font-size: 1.2vw;
+  line-height: 0px;
+  color: #000;
+  font-weight: bold;
+}
+select.goog-te-combo {
+    border: 0;
+    font-size: 14px;
+    color: #32373c;
+    background: url(../images/globe.png) no-repeat left;
+    background-size: 17px;
+    padding-left: 15px !important;
+    width: 60px !important;
+}
+.cards {
+    background-image: url(../images/cards-bg.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 70px 0px 160px 0px;
+}
+.spacer {
+    min-height: 0px; 
+}
+.phone-1{
+    width: 20px;
+    height: 30px;
+}
+p.box-content {
+    font-size: 12px;
+    line-height: 17px;
+    color: #393939;
+}
+.quote-area {
+    padding: 100px 0px 70px 0px;
+    background: #0b72f1;
+}
+  .col-new {
+    width: 25%;
+    font-size: 8px;
+   
+}
+ img.logo1 {
+  max-width: 25vw;
+}}
+@media only screen and (max-width: 450px) {
+ .a.button-link{
+     padding: 0px 0px 0px 0px;
+     font-size: 1px;
+ }
+
+.col-new1 {
+    width: 35%;
+    display: inline-block;
+    
+}
+.col-new2 {
+    width: 65%;
+}
+.phone-new{
+     padding: 1px;
+     font-size: 2px;
+}
+  
+}
+</style>
     
 </head>
 
@@ -21,25 +117,25 @@
 
    <header>
         <div class="container">
-            <div class="row align-items-center pt-2">
-                <div class="col-lg-5 col-md-6 col-sm-6  text-center">
-                    <img src="images/Lunna-Loans.png" alt="" class="logo">
+            <div class="row align-items-center pt-2 ">
+                <div class="col-5   text-center" >
+                    <img src="images/Lunna-Loans.png" alt="" class="logo1">
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 text-lg-end text-md-end text-center ">
-                    <div class="phone">
+                <div class="col-2  text-lg-end text-md-end  ">
+                    <div class="phone" >
                         <a href="">
-                            <span class="phone-bg"><img src="images/phone.svg" alt=""></span>
-                            <span class="phone-txt">1-866-780-0274</span>
+                            <span class="phone-bg " ><img src="images/phone.svg" alt="" class="phone-1" ></span>
+                            <span class="phone-txt" >1-866-780-0274</span>
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-1 col-md-6 col-sm-6 text-sm-center text-center">
+                <div class="col-2  text-sm-center text-center">
                     <select class="goog-te-combo" >
                         <option value="en">EN</option>
                         <option value="es">ES</option>
                     </select>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 text-center">
+                <div class="col-3 text-center">
                     <a href="#form" class="button-link chng-lang" role="button" data-en="Received Mail Offer?" data-es="¿Recibió la oferta por correo?">Received Mail Offer?</a>
                 </div>
             </div>
@@ -48,14 +144,19 @@
 
    <!-- Hero -->
 
-    <div class="hero pt-4">
+    <div class="hero pt-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-sm-12 mt-5">   
                    <h1 class="hero-title text-center chng-lang" data-en="A loan designed to help simplify your life" data-es="Un préstamo diseñado para ayudar a simplificar su vida" >A loan designed to help simplify your life</h1>
                    <p class="hero-para-1 pt-2 pb-5 text-center chng-lang" data-en="Say goodbye to high-interest, high-stress debt & consolidate into one low monthly payment" data-es="Diga adiós a las deudas de alto interés y estrés y consolide en un pago mensual bajo">Say goodbye to high-interest, high-stress debt & consolidate into one low monthly payment</p>
-                   <a href="#form" class="hero-btn-1 b-hover chng-lang" data-en="Get My Loan" data-es="Obtener mi préstamo">Get My Loan</a>
-                   <a href="#form" class="hero-btn-2 b-hover chng-lang" data-en="Got a Mail Offer? Click here" data-es="¿Tienes una oferta por correo?">Got a Mail Offer? Click here</a>
+                   <div class="row">
+                    <div class="col-lg-5 col-5 col-new1">
+                        <a href="#form" class="hero-btn-1 b-hover chng-lang px-lg-5 phone-new "    data-en="Get My Loan" data-es="Obtener mi préstamo">Get My Loan</a>
+                    </div><div class="col-lg-7 col-7 col-new2">
+                        <a href="#form" class="hero-btn-2 b-hover chng-lang" data-en="Got a Mail Offer? Click here" data-es="¿Tienes una oferta por correo?">Got a Mail Offer? Click here</a>
+                    </div>
+                   </div>
                    <p class="hero-para-1 mt-5 chng-lang text-center" data-en="*Will not affect your Credit Score. –" data-es="*No afectará su puntaje de crédito. –">*Will not affect your Credit Score. –</p>
                 </div>
                 <div class="col-lg-7 col-sm-12 text-center">   
@@ -113,25 +214,25 @@
     <div class="img-box">
         <div class="container">
             <div class="row  align-items-center ">
-                <div class="col-sm-12 col-lg-3 col-md-3">
+                <div class="col-sm-3 col-lg-3 col-md-3 col-new">
                     <div class="box-wraper d-flex align-items-center">
                         <figure><img src="images/Fast Online Instant Approvals.svg" alt=""></figure>
                         <p class="box-content chng-lang" data-en="Fast Online Instant Approvals" data-es="Aprobaciones instantáneas en línea rápidas">Fast Online Instant Approvals</p>
                     </div>
                 </div>
-                <div class="col-sm-12 col-lg-3 col-md-3">
+                <div class="col-sm-3 col-lg-3 col-md-3 col-new">
                     <div class="box-wraper d-flex align-items-center">
                         <figure><img src="images/payment.svg" alt=""></figure>
                         <p class="box-content chng-lang" data-en="No Prepayment Fees" data-es="Sin cargos por pago anticipado">No Prepayment Fees</p>
                     </div>
                 </div>
-                <div class="col-sm-12 col-lg-3 col-md-3">
+                <div class="col-sm-3 col-lg-3 col-md-3 col-new">
                     <div class="box-wraper d-flex align-items-center">
                         <figure><img src="images/500,000 Customers.svg" alt=""></figure>
                         <p class="box-content chng-lang" data-en="500,000 Customers" data-es="500,000 Clientes">500,000 Customers</p>
                     </div>
                 </div>
-                <div class="col-sm-12 col-lg-3 col-md-3">
+                <div class=" col-sm-3 col-lg-3 col-md-3 col-new">
                     <div class="box-wraper d-flex align-items-center">
                         <figure><img src="images/Flexible payments.svg" alt=""></figure>
                         <p class="box-content chng-lang" data-en="Flexible payments" data-es="Pagos flexibles">Flexible payments</p>
@@ -458,8 +559,10 @@
                     
                 </div>
             </div>
-            <p class="privacy text-center my-5 chng-lang" data-en="Privacy Policy" data-es="Política de privacidad">Privacy Policy</p>
-            <p class="copywrite text-center chng-lang" data-en="Lunna Loans LLC© 2023. All rights reserved." data-es="Lunna Loans LLC© 2023. Todos los derechos reservados.">Lunna Loans LLC© 2023. All rights reserved.</p>
+            <p class="copywrite text-center my-5 chng-lang" data-en="Privacy Policy" data-es="Política de privacidad ">Disclaimer</p>
+            <p style="padding-bottom: 70px;" class="copywrite text-center chng-lang" data-en="Lunna Loans LLC© 2023. All rights reserved." data-es="Lunna Loans LLC© 2023. Todos los derechos reservados.">Nationwide Financial LLC provides loan referral services. Loans are not available in all states. Loans will be fulfilled via our preferred network of third-party lenders. Your loan agreement will clearly identify the lender. Nationwide Financial LLC has no control over participating third-party lender credit worthiness eligibility criteria. APR/Interest rates will vary depending on individual lender terms. Generally, all individuals applying for credit must be a U.S. citizen or permanent resident and at least 18 years old. Valid bank account and Social Security Number/FEIN are required. All loan applications are subject to credit review and approval. You authorize us to make inquiries and obtain and confirm information about you as we deem appropriate for the purpose of evaluating your eligibility for this extension of credit, including obtaining credit reports, verifying your income. You also authorize us to provide identification information about you, and our credit experience information with you to others in accordance with applicable law. *Annual Percentage Rates. Not all borrowers will qualify for the same rate when a rate is listed “as low as”. Qualifying for rates listed “as low as” are based on the borrower’s credit worthiness, which includes factors such as debt ratio and credit history. Interest rates will vary and are based on lender terms. Ranges from 4.95%-36%. All loans may be subject to origination fees ranging from 1% – 5%, of the loan amount, if permitted under applicable state law.</p>
+            <hr />
+            <p style="padding-top: 70px;" class="copywrite text-center chng-lang" data-en="Lunna Loans LLC© 2023. All rights reserved." data-es="Lunna Loans LLC© 2023. Todos los derechos reservados.">Lunna Loans LLC© 2023. All rights reserved.</p>
         </div>
 
     </div>
