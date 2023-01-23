@@ -13,7 +13,11 @@
     <link rel='stylesheet' type='text/css' href='css/index.css'>
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="script.js"></script>
-    <style type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+    <style>
 @media only screen and (min-width: 660px) {
 a.button-link {
   font-size: 14px;
@@ -29,6 +33,9 @@ a.button-link {
  img.logo1 {
   max-width: 22vw;
 }
+.text-selection{
+    display:none;
+}
           }
 
 @media only screen and (max-width: 660px) {
@@ -43,10 +50,13 @@ a.button-link {
   display: inline-block;
 }
 span.phone-txt {
-  font-size: 1.2vw;
-  line-height: 0px;
-  color: #000;
-  font-weight: bold;
+   font-size: 8px;
+}
+.col-5-new{
+    width: 125px;
+}
+.col-2-new{
+    width: 125px;
 }
 select.goog-te-combo {
     border: 0;
@@ -68,7 +78,7 @@ select.goog-te-combo {
     min-height: 0px; 
 }
 .phone-1{
-    width: 20px;
+    width: 25px;
     height: 30px;
 }
 p.box-content {
@@ -86,7 +96,7 @@ p.box-content {
    
 }
  img.logo1 {
-  max-width: 25vw;
+  width: 20vw;
 }}
 @media only screen and (max-width: 450px) {
  .a.button-link{
@@ -118,10 +128,10 @@ p.box-content {
    <header>
         <div class="container">
             <div class="row align-items-center pt-2 ">
-                <div class="col-5   text-center" >
+                <div class="col-5 col-5-new  text-center" >
                     <img src="images/Lunna-Loans.png" alt="" class="logo1">
                 </div>
-                <div class="col-2  text-lg-end text-md-end  ">
+                <div class="col-2 col-2-new text-lg-end text-md-end  ">
                     <div class="phone" >
                         <a href="">
                             <span class="phone-bg " ><img src="images/phone.svg" alt="" class="phone-1" ></span>
@@ -378,22 +388,22 @@ p.box-content {
                         <h2 class="form-area-heading text-center chng-lang" data-en="GET A QUICK, FREE QUOTE" data-es="Obtenga una cotización rápida y gratuita">GET A QUICK, FREE QUOTE</h2>
                         <h3 class="form-area-subheading text-center area-lang" >Start the conversation.<br>Please fill out the form below.</h3>
                         <h3 class="form-area-subheading text-center area-lang-es" >Empieza la conversación. Por favor, rellene el siguiente formulario.</h3>
-                        <form action="" method="post" id="form1">
+                        <form onsubmit="onSubmit(event)" id="form1">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="code" placeholder="RESERVATION CODE (optional)">
+                                <input type="text" class="form-control" id="code" placeholder="RESERVATION CODE (optional)" data-toggle="tooltip" title="RESERVATION CODE">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="name" placeholder="FULL NAME">
+                                <input type="text" class="form-control" id="name" placeholder="FULL NAME*" data-toggle="tooltip" title="Enter Your Full Name" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="number" placeholder="PHONE NUMBER">
+                                <input type="text" class="form-control" id="number" placeholder="PHONE NUMBER*"  pattern="[0-9]{10}" title="Enter valid phone number" required>
                             </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="email" placeholder="PRIMARY EMAIL">
+                            <div class="form-group" >
+                                <input type="email" class="form-control" id="email" placeholder="PRIMARY EMAIL*" data-toggle="tooltip" title="Enter your email" required>
                             </div>
-                            <button type="button" onClick="onSubmit()" class="btn btn-default sbt b-hover">GET STARTED</button>
+                            <button type="submit"  class="btn btn-default sbt b-hover">GET STARTED</button>
                         </form>
-                        <p class="form-txt">*Will not affect your Credit Score. -</p>
+                        <p class="form-txt">*Will not affect your Credit Score.</p>
                     </div>
                 </div>
                 
@@ -616,6 +626,19 @@ p.box-content {
         
 
     </script>
+    <script>
+
+</script>
+<script src="script.js" type="text/javascript"></script>
+<!-- <script>
+function emailCheck() {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+  {}else{
+    alert("You have entered an invalid email address!")
+    return (false)
+  }
+}
+</script> -->
 </body>
 
 </html>

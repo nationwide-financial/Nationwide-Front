@@ -80,20 +80,20 @@
                     <div class="box mb-5">
                         <h6 class="code-title">Your Reservation Code</h6>
                         <p class="code-txt">(if you received an email offer)</p>
-                        <input type="text" placeholder="" name="coupon-code" id="rev-code">
+                        <input type="text" placeholder="" name="coupon-code" id="rev-code" data-toggle="tooltip" title="RESERVATION CODE">
                         <button type="button" onClick="getReservationCode()" id="app-btn">Apply Code</button>
                     </div>
                     <!-- step one -->
                     <div class="step">
                         <div class="box">
                             <label for="">First Name</label>
-                            <input type="text" placeholder="" oninput="this.className = ''" name="First Name" id="fname">
+                            <input type="text" placeholder="" oninput="this.className = ''" name="First Name" id="fname" data-toggle="tooltip" title="Your First Name">
                             <label for="">Last Name</label>
-                            <input type="text" placeholder="" oninput="this.className = ''" name="Last Name" id="lname">
+                            <input type="text" placeholder="" oninput="this.className = ''" name="Last Name" id="lname" data-toggle="tooltip" title="Your Last Name">
                             <label for="">Email *</label>
-                            <input type="email" placeholder="" oninput="this.className = ''" name="email" id="email">
+                            <input type="email" placeholder="" oninput="this.className = ''" name="email" id="email" data-toggle="tooltip" title="Your Email">
                             <label for="">Phone *</label>
-                            <input type="text" placeholder="" oninput="this.className = ''" name="phone" id="phone">
+                            <input type="text" placeholder="" oninput="this.className = ''" name="phone" id="phone" data-toggle="tooltip" title="Your Phone Number">
                         </div>
                         
                     </div>
@@ -102,9 +102,9 @@
                     <div class="step">
                         <div class="box">
                             <label for="">Income *</label>
-                            <input type="number" placeholder="$ 888,000" oninput="this.className = ''" name="income" id="income">
+                            <input type="number" placeholder="$ 888,000" oninput="this.className = ''" name="income" id="income" data-toggle="tooltip" title="Income">
                             <label for="">Loan Amount *</label>
-                            <select name="form_fields_loan" id="form-field-loan" required="required" aria-required="true">
+                            <select name="form_fields_loan" id="form-field-loan" required="required" aria-required="true" data-toggle="tooltip" title="Loan Amount">
                                 <option value="Select Loan Amount">Select Loan Amount</option>
                                 <option value="$7,500-$14,999">$7,500-$14,999</option>
                                 <option value="$15,000-$29,999">$15,000-$29,999</option>
@@ -112,7 +112,7 @@
                                 <option value="$75,000+">$75,000+</option>
                             </select>
                             <label for="">Loan Purpose *</label>
-                            <select name="form_fields_loan_purpose" id="form-field-loan_purpose"  required="required" aria-required="true">
+                            <select name="form_fields_loan_purpose" id="form-field-loan_purpose"  required="required" aria-required="true" data-toggle="tooltip" title="Loan Purpose">
                                 <option value="Select Loan Purpose">Select Loan Purpose</option>
                                 <option value="Home Improvement">Home Improvement</option>
                                 <option value="Pay off Credit Cards">Pay off Credit Cards</option>
@@ -127,13 +127,13 @@
                     <div class="step">
                         <div class="box">
                             <label for="">Address</label>
-                            <input type="text" placeholder="6097 Roosevelt Dr." oninput="this.className = ''" name="Address" id="address">
+                            <input type="text" placeholder="6097 Roosevelt Dr." oninput="this.className = ''" name="Address" id="address" data-toggle="tooltip" title="Address">
                             <label for="">City</label>
-                            <input type="text" placeholder="Ketchikan" oninput="this.className = ''" name="city" id="city">
+                            <input type="text" placeholder="Ketchikan" oninput="this.className = ''" name="city" id="city" data-toggle="tooltip" title="City">
                             <label for="">Zip</label>
-                            <input type="number" placeholder="99901-9728" oninput="this.className = ''" name="zip" id="zip">
+                            <input type="number" placeholder="99901-9728" oninput="this.className = ''" name="zip" id="zip" data-toggle="tooltip" title="Zip Code">
                             <label for="">State</label>
-                            <input type="text" placeholder="AK" oninput="this.className = ''" name="State" id="state">
+                            <input type="text" placeholder="AK" oninput="this.className = ''" name="State" id="state" data-toggle="tooltip" title="State">
                         </div>
                     </div>
                     <!-- step four -->
@@ -141,7 +141,7 @@
                         <p class="form-notice">Kindly Fill the details below in order to fill your successful submission</p>
                         <div class="box">
                             <label for="">Social Security Number</label>
-                            <input type="text"  oninput="this.className = ''" name="s-number" id="s-number">
+                            <input type="text"  oninput="this.className = ''" name="s-number" id="s-number" placeholder="xxx-xx-xxxx" pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}" title="Invalid Social Security Number">
                             <label for="">D.O.B</label>
                             <input type="date"  oninput="this.className = ''" name="dob" id="dob">
                             <input type="checkbox" id="score" name="score" value="I give consent to do a soft redit check that
@@ -238,6 +238,8 @@
         function nextPrev(n) {
           // This function will figure out which tab to display
           var x = document.getElementsByClassName("step");
+          s =  document.getElementById("s-number").value;
+          console.log('s:',s)
           // Exit the function if any field in the current tab is invalid:
          if (n == 1 && !validateForm()) return false;
           // Hide the current tab:
@@ -259,6 +261,7 @@
           var x, y, i, valid = true;
           x = document.getElementsByClassName("step");
           y = x[currentTab].getElementsByTagName("input");
+         
           // A loop that checks every input field in the current tab:
           for (i = 0; i < y.length; i++) {
             // If a field is empty...

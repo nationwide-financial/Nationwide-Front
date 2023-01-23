@@ -1,11 +1,14 @@
-function onSubmit() {
+function onSubmit(event) {
+    event.preventDefault()
     var code = document.getElementById("code").value;
     var name = document.getElementById("name").value;
     var number = document.getElementById("number").value;
     var email = document.getElementById("email").value;
     console.log('code', code);
-    var url = "https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/"
+    
     if (code !== "") {
+        var url = "https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/"
+  
         fetch(url + code)
             .then((response) => {
                 console.log(response.status)
@@ -82,6 +85,8 @@ function onSubmit() {
 
         }
     }
+  
+    
 }
 
 function generateRandomString(length) {
