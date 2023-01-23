@@ -4,6 +4,7 @@ var socialseq, e, x = "";
 var dob = 0;
 
 function onPageLoad() {
+    
     var data = localStorage.getItem("data")
     if (localStorage.getItem("data") !== "") {
         data = JSON.parse(localStorage.getItem("data"));
@@ -194,6 +195,16 @@ function onFinished() {
         "user_s_number": socialseq,
         "user_dob": dob,
     }
+
+    regexp = /^(?!000|666)[0-8][0-9]{2}-(?!00)[0-9]{2}-(?!0000)[0-9]{4}$/;
+  
+        if (!regexp.test(socialseq))
+          {
+            alert("You have entered an invalid social security number!")
+            return (false)
+          }
+        else
+         
 
     // alert(JSON.stringify(user))
     console.log(JSON.stringify(user));
