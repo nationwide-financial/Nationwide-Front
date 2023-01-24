@@ -7,13 +7,16 @@ function onSubmit(event) {
     console.log('code', code);
     
     if (code !== "") {
-        var url = "https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/"
+        var url = 'https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/'
+       
   
         fetch(url + code)
             .then((response) => {
                 console.log(response.status)
                 if (response.status === 404) {
-                    //alert("code is invalied.");
+                    var errorElement = document.getElementById("card-errors3");
+                    errorElement.textContent = "Invalid Code";
+                    errorElement.style.display = "block";
                     document.getElementById("code").focus()
                 } else if (response.status === 200) {
                     response.json().then((data) => {
@@ -38,7 +41,24 @@ function onSubmit(event) {
         var email = document.getElementById("email").value;
         
         //var postid = generateRandomString(5);
-        
+        if (email == ""){ 
+            var errorElement = document.getElementById("card-errors");
+              errorElement.textContent = "required*";
+              errorElement.style.display = "block";
+              return 
+            }else if(phone == ""){
+                { 
+            var errorElement = document.getElementById("card-errors1");
+              errorElement.textContent = "required*";
+              errorElement.style.display = "block";
+              return }
+              }else if(fullName == ""){
+                { 
+            var errorElement = document.getElementById("card-errors2");
+              errorElement.textContent = "required*";
+              errorElement.style.display = "block";
+              return (false)}
+              }else
         
         // if (confirm("Data Saved!")) {
         //         window.location.href = "index.html";
@@ -59,7 +79,6 @@ function onSubmit(event) {
         var url = 'https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/createLeads'
         
 
-
         if (url) {
             fetch(url, {
                 // Adding method type
@@ -75,8 +94,7 @@ function onSubmit(event) {
             })
                 .then(res => {
                     if (res.status == 200 || res.status == 201) {
-                        window.location.href = "index.html";
-                        //alert("Record Saved Check Your Email!.");
+                        window.location.href = "form.html";
                     }
                     console.log(res);
                 }

@@ -68,6 +68,7 @@ function onPageLoad() {
 
 var url="https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/"
 
+
 function getReservationCode() {
     var revCode = document.getElementById("rev-code").value;
     if (revCode !== "") {
@@ -86,7 +87,9 @@ function getReservationCode() {
             .then((response) => {
                 console.log(response.status)
                 if (response.status === 404) {
-                    //alert("code is invalied.");
+                    var errorElement = document.getElementById("card-errors3");
+                    errorElement.textContent = "Invalid Code";
+                    errorElement.style.display = "block";
                     document.getElementById("rev-code").focus()
                 } else if (response.status === 200) {
                     response.json().then((data) => {
@@ -95,6 +98,7 @@ function getReservationCode() {
                         document.getElementById("lname").value = data[0].last_name;
                         document.getElementById("email").value = data[0].user_email;
                         document.getElementById("phone").value = data[0].user_phone;
+                        localStorage.setItem("middleName",data[0].middle_name);
                     });
                 }
             })
@@ -104,7 +108,9 @@ function getReservationCode() {
 function onFinished() {
     var score = document.getElementById("score").checked;
     if (!score){
-        alert("Click the accept button.");
+        var errorElement = document.getElementById("card-errors4");
+              errorElement.textContent = "Click the accept button.";
+              errorElement.style.display = "block";
         document.getElementById("score").focus();
         return
     }
@@ -117,7 +123,7 @@ function onFinished() {
     var lname = document.getElementById("lname").value;
     //  var middleName = document.getElementById("middleName").value;
     var middleName = localStorage.getItem("middleName") || "";
-    var fullName = localStorage.getItem("fullName") || "";
+    var fullName = fname+" "+middleName+" "+lname;
     var email = document.getElementById("email").value;
     var phone = document.getElementById("phone").value;
 
@@ -151,6 +157,7 @@ function onFinished() {
         postid = contactId;
         fmmethod = "PUT";
         url="https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/" + contactId;
+       
         
         
 
@@ -158,6 +165,7 @@ function onFinished() {
         postid = id;
         fmmethod = "POST";
         url="https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/";
+       
 
         if(confirm("Data Saved!")) {
             window.location.href = "index.html";
@@ -197,12 +205,19 @@ function onFinished() {
     }
 
     regexp = /^(?!000|666)[0-8][0-9]{2}-(?!00)[0-9]{2}-(?!0000)[0-9]{4}$/;
+     if (!regexp.test(socialseq)) {
+              var errorElement = document.getElementById("card-errors");
+              errorElement.textContent = "Invalid Social Security Number.Please enter in format xxx-xx-xxxx ";
+              errorElement.style.display = "block";
+              return (false)
+            } 
   
-        if (!regexp.test(socialseq))
+        /*  if (!regexp.test(socialseq))
           {
-            alert("You have entered an invalid social security number!")
+            const myElement = document.getElementById("s-number")
+            myElement.style.color = "red";
             return (false)
-          }
+          } */
         else
          
 
