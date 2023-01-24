@@ -86,7 +86,7 @@ function getReservationCode() {
             .then((response) => {
                 console.log(response.status)
                 if (response.status === 404) {
-                    alert("code is invalied.");
+                    //alert("code is invalied.");
                     document.getElementById("rev-code").focus()
                 } else if (response.status === 200) {
                     response.json().then((data) => {
