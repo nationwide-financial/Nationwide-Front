@@ -13,7 +13,7 @@ function onSubmit(event) {
             .then((response) => {
                 console.log(response.status)
                 if (response.status === 404) {
-                    alert("code is invalied.");
+                    //alert("code is invalied.");
                     document.getElementById("code").focus()
                 } else if (response.status === 200) {
                     response.json().then((data) => {
@@ -76,7 +76,7 @@ function onSubmit(event) {
                 .then(res => {
                     if (res.status == 200 || res.status == 201) {
                         window.location.href = "index.html";
-                        alert("Record Saved Check Your Email!.");
+                        //alert("Record Saved Check Your Email!.");
                     }
                     console.log(res);
                 }
