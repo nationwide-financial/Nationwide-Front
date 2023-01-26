@@ -1,0 +1,174 @@
+
+.menu-icon img{
+    width: 25px;
+
+}
+
+@media only screen and (min-width: 1200px) {
+    .container {
+        width: 1000px;
+    }
+}
+
+
+
+@media only screen and (max-width: 992px) {
+    span.phone-txt {
+        font-size: 10px;
+    }
+
+    .phone-bg img {
+
+        width: 12px;
+    }
+
+
+
+}
+
+@media only screen and (min-width: 992px) {
+    a.button-link {
+        font-size: 14px;
+        font-weight: 700;
+        font-style: normal;
+        line-height: 20px;
+        background-color: #0b72f1;
+        border-radius: 7px 7px 7px 7px;
+        padding: 18px 20px 18px 20px;
+        color: #fff;
+        display: inline-block;
+    }
+}
+
+@media only screen and (max-width: 768px) {}
+
+@media only screen and (min-width: 600px) {
+
+
+    img.logo1 {
+        max-width: 100%;
+    }
+
+    .text-selection {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    a.button-link {
+        font-size: 10px;
+        font-weight: 700;
+        font-style: normal;
+        background-color: #0b72f1;
+        border-radius: 7px 7px 7px 7px;
+        padding: 5px 10px 5px 10px;
+        color: #fff;
+        display: inline-block;
+    }
+
+    
+
+    button#app-btn {        
+        width: 100%;
+    }
+
+    span.phone-txt {
+        font-size: 8px;
+    }
+
+    .col-5-new {
+        width: 80px;
+    }
+
+    .col-2-new {
+        width: 125px;
+    }
+
+    select.goog-te-combo {
+        border: 0;
+        font-size: 10px;
+        color: #32373c;
+        background: url(../images/globe.png) no-repeat left;
+        background-size: 12px;
+        padding-left: 15px !important;
+        width: 60px !important;
+    }
+
+    .cards {
+        background-image: url(../images/cards-bg.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 70px 0px 160px 0px;
+    }
+
+    .spacer {
+        min-height: 0px;
+    }
+
+    .phone-1 {
+        width: 25px;
+        height: 30px;
+    }
+
+    p.box-content {
+        font-size: 12px;
+        line-height: 17px;
+        color: #393939;
+    }
+
+    .quote-area {
+        padding: 100px 0px 70px 0px;
+        background: #0b72f1;
+    }
+
+    .col-new {
+        width: 25%;
+        font-size: 8px;
+
+    }
+
+
+}
+
+@media only screen and (max-width: 480px) {
+    .a.button-link {
+        padding: 0px 0px 0px 0px;
+        font-size: 1px;
+    }
+
+    a.hero-btn-1 {
+        font-size: 12px;
+    }
+
+    a.hero-btn-2 {
+        font-size: 11px;
+    }
+
+    .col-new1  {
+        /* width: 35%; */
+        display: inline-block;
+
+    }
+
+    span.phone-txt {
+        font-size: 6px;
+    }
+
+
+    .phone-new {
+        padding: 1px;
+        font-size: 2px;
+    }
+
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 768px) {
+
+    .hero .col-lg-5.col-new1,
+    .hero .col-lg-7.col-new2
+    {
+        width: auto !important;
+
+    }
+}
