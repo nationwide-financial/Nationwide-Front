@@ -1,6 +1,37 @@
 <!DOCTYPE html>
 <html lang='en'>
 
+<style>
+@media only screen and (min-width: 550px) {
+    .burger{
+    float: left;
+    padding-top: 10px;
+    position: absolute;
+    top: 10px;
+    left: 46%;
+}
+.burger-size{
+    width: 6%;
+}
+
+.apply-code-button {
+    margin-left: 15% !important;
+}
+}
+@media only screen and (max-width: 450px) {
+.burger{
+    float: left;
+    padding-top: 10px;
+    position: absolute;
+    top: 10px;
+    left: 46%;
+}
+.burger-size{
+    width: 6%;
+}
+}
+</style>
+
 <head>
     <meta charset='utf-8'>
     </meta>
@@ -40,8 +71,8 @@
                 <div class="col-lg-3 col-md-6 text-lg-end text-sm-center text-center col-12">
                     <a href="#form" class="button-link" role="button">Received Mail Offer?</a>
                 </div>
-                <div class="col-lg-1 col-md-6 text-lg-end text-md-end text-center col-12">
-                    <img src="images/Group 4.svg" alt="" class="mobile-bar">
+                <div class="col-lg-1 col-md-6 text-lg-end text-md-end text-center col-12 burger">
+                    <img src="images/Group 4.svg" alt="" class="mobile-bar burger-size">
                 </div>
             </div>
         </div>
@@ -82,7 +113,7 @@
                         <p class="code-txt">(if you received an email offer)</p>
                         <input type="text" placeholder="" name="coupon-code" id="rev-code" data-toggle="tooltip" title="RESERVATION CODE">
                         <p id="card-errors3" class="paragraph-49" style="color: red;"></p>
-                        <button type="button" onClick="getReservationCode()" id="app-btn">Apply Code</button>
+                        <button type="button" onClick="getReservationCode()" id="app-btn" class="apply-code-button">Apply Code</button>
                     </div>
                     <!-- step one -->
                     <div class="step">
