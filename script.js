@@ -29,7 +29,6 @@ function onSubmit(event) {
                         // localStorage.setItem("fullName", data[0].combined_name_field);
                         // localStorage.setItem("number", number);
                         // localStorage.setItem("email", email);
-
                         window.location.href = "form.html";
                     });
                 }
@@ -74,7 +73,8 @@ function onSubmit(event) {
         }
 
         // alert(JSON.stringify(user))
-        console.log(JSON.stringify(user));
+        //console.log(JSON.stringify(user));
+        
 
         var url = 'https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/createLeads'
         
@@ -92,15 +92,29 @@ function onSubmit(event) {
                     'Access-Control-Allow-Origin': '*'
                 },
             })
+                // .then(res => {
+                //     if (res.status === 201) {
+                //         localStorage.setItem("user", JSON.stringify(res.result));
+                //         window.location.href = "form.html";
+                //     } else if (res.status === 200) {
+                //         window.location.href = "form.html";
+                //     }
+                //     console.log("whats inside res>>>", res);
+                // }
+
+                // )
                 .then(res => {
-                    if (res.status == 200 || res.status == 201) {
+                    if (res.status === 201) {
+                        return res.json();
+                    } else if (res.status === 200) {
                         window.location.href = "form.html";
                     }
-                    console.log(res);
-                }
-
-                )
-
+                })
+                .then(data => {
+                    localStorage.setItem("userDataNew", JSON.stringify(data));
+                    //console.log("This saved in>>", data)
+                    window.location.href = "form.html";
+                }) 
         }
     }
   

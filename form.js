@@ -3,16 +3,27 @@ var address, city, zip, state, socialseq = ""
 var socialseq, e, x = "";
 var dob = 0;
 
+window.onbeforeunload = function () {
+    localStorage.clear();
+    };
+
+
 function onPageLoad() {
-    
-    var data = localStorage.getItem("data")
-    if (localStorage.getItem("data") !== "") {
+
+    var data = ""
+
+    if (localStorage.getItem("data") !== null) {
         data = JSON.parse(localStorage.getItem("data"));
+        //console.log("data",  data)
     }
-    if (data !== "") {
+    if (localStorage.getItem("data") !== null) {
+
+        data = JSON.parse(localStorage.getItem("data"));
+        //console.log("data",  data)
         //step One
         document.getElementById("rev-code").value = data[0].contactid;
         document.getElementById("fname").value = data[0].first_name;
+        document.getElementById("mname").value = data[0].middle_name;
         document.getElementById("lname").value = data[0].last_name;
         document.getElementById("email").value = data[0].user_email;
         document.getElementById("phone").value = data[0].user_phone;
@@ -32,41 +43,40 @@ function onPageLoad() {
         document.getElementById("s-number").value = data[0].user_s_number;
         let timestamp = data[0].user_dob;
         let currentDate = new Date(timestamp);
-        
+
         let month = currentDate.getMonth() + 1; // getMonth() returns a 0-based index, so we add 1
         let day = currentDate.getDate();
         let year = currentDate.getFullYear();
-        let newmonth = month < 10 ?'0'+month:month;
-        let newday = day < 10 ?'0'+day:day;
+        let newmonth = month < 10 ? '0' + month : month;
+        let newday = day < 10 ? '0' + day : day;
 
         let formattedDate = `${year}-${newmonth}-${newday}`;
         console.log(formattedDate); // Output: "1-10-2023"
 
-        
+
         console.log("check date", formattedDate)
         document.getElementById("dob").value = formattedDate;
-
-    } else {
-        //Step One
-
-        var fname = localStorage.getItem("fistName");
-        var lname = localStorage.getItem("lastName");
-        var middleName = localStorage.getItem("middleName");
-        var fullName = localStorage.getItem("fullName");
-        var email = localStorage.getItem("email");
-        var phone = localStorage.getItem("number");
-
-        //Step One
-        document.getElementById("rev-code").value = "";
-        document.getElementById("fname").value = fname;
-        document.getElementById("lname").value = lname;
-        document.getElementById("email").value = email;
-        document.getElementById("phone").value = phone;
     }
-    //  localStorage.removeItem('data')
+    else if (localStorage.getItem("userDataNew") !== null) {
+        //alert('userDataNew')
+
+        const userDataNew = JSON.parse(localStorage.getItem("userDataNew"));
+        console.log('userDataNew', userDataNew.data)
+
+        if (userDataNew !== "") {
+            // localStorage.removeItem("data")
+            // localStorage.removeItem("user")
+            document.getElementById("rev-code").value = userDataNew.contact_id;
+            document.getElementById("fname").value = userDataNew.data.first_name;
+            document.getElementById("mname").value = userDataNew.data.middle_name;
+            document.getElementById("lname").value = userDataNew.data.last_name;
+            document.getElementById("email").value = userDataNew.data.user_email;
+            document.getElementById("phone").value = userDataNew.data.user_phone;
+        }
+    }
 }
 
-var url="https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/"
+var url = "https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/"
 
 
 function getReservationCode() {
@@ -75,14 +85,14 @@ function getReservationCode() {
         fetch(url + revCode,
             {
                 headers: {
-                    
+
                     'Accept': '*/*',
                     'Access-Control-Allow-Headers': "*",
                     'Access-Control-Allow-Origin': '*'
-                    
-                  },
+
+                },
             }
-        
+
         )
             .then((response) => {
                 console.log(response.status)
@@ -95,10 +105,10 @@ function getReservationCode() {
                     response.json().then((data) => {
                         document.getElementById("rev-code").value = data[0].contactid;
                         document.getElementById("fname").value = data[0].first_name;
+                        document.getElementById("mname").value = data[0].middle_name;
                         document.getElementById("lname").value = data[0].last_name;
                         document.getElementById("email").value = data[0].user_email;
                         document.getElementById("phone").value = data[0].user_phone;
-                        localStorage.setItem("middleName",data[0].middle_name);
                     });
                 }
             })
@@ -107,10 +117,10 @@ function getReservationCode() {
 
 function onFinished() {
     var score = document.getElementById("score").checked;
-    if (!score){
+    if (!score) {
         var errorElement = document.getElementById("card-errors4");
-              errorElement.textContent = "Click the accept button.";
-              errorElement.style.display = "block";
+        errorElement.textContent = "Click the accept button.";
+        errorElement.style.display = "block";
         document.getElementById("score").focus();
         return
     }
@@ -121,9 +131,10 @@ function onFinished() {
     var fname = document.getElementById("fname").value;
     // var fname = localStorage.getItem("fistName");
     var lname = document.getElementById("lname").value;
-    //  var middleName = document.getElementById("middleName").value;
-    var middleName = localStorage.getItem("middleName") || "";
-    var fullName = fname+" "+middleName+" "+lname;
+    //  var middleName = document.getElementById("middleName").value;    
+    var middleName = document.getElementById("mname").value;
+    console.log("Middle Name>>>>", middleName)
+    var fullName = fname + " " + middleName + " " + lname;
     var email = document.getElementById("email").value;
     var phone = document.getElementById("phone").value;
 
@@ -140,7 +151,7 @@ function onFinished() {
     var zip = document.getElementById("zip").value;
     var state = document.getElementById("state").value;
 
-     
+
     //Step four
     var socialseq = document.getElementById("s-number").value;
     var dob = document.getElementById("dob").value;
@@ -151,23 +162,25 @@ function onFinished() {
     var uurl = "https://#";
     var temprecord = "Null";
     var url = ""
+    localStorage.removeItem("data")
+    localStorage.removeItem("userDataNew")
 
     console.log("test id", contactId)
-    if (contactId !== ""){
+    if (contactId !== "") {
         postid = contactId;
         fmmethod = "PUT";
-        url="https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/" + contactId;
-       
-        
-        
+        url = "https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/" + contactId;
 
-    }else{
+
+
+
+    } else {
         postid = id;
         fmmethod = "POST";
-        url="https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/";
-       
+        url = "https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/";
 
-        if(confirm("Data Saved!")) {
+
+        if (confirm("Data Saved!")) {
             window.location.href = "index.html";
         }
     }
@@ -205,24 +218,24 @@ function onFinished() {
     }
 
     regexp = /^(?!000|666)[0-8][0-9]{2}-(?!00)[0-9]{2}-(?!0000)[0-9]{4}$/;
-     if (!regexp.test(socialseq)) {
-              var errorElement = document.getElementById("card-errors");
-              errorElement.textContent = "Invalid Social Security Number.Please enter in format xxx-xx-xxxx ";
-              errorElement.style.display = "block";
-              return (false)
-            } 
-  
-        /*  if (!regexp.test(socialseq))
-          {
-            const myElement = document.getElementById("s-number")
-            myElement.style.color = "red";
-            return (false)
-          } */
-        else
-         
+    if (!regexp.test(socialseq)) {
+        var errorElement = document.getElementById("card-errors");
+        errorElement.textContent = "Invalid Social Security Number.Please enter in format xxx-xx-xxxx ";
+        errorElement.style.display = "block";
+        return (false)
+    }
 
-    // alert(JSON.stringify(user))
-    console.log(JSON.stringify(user));
+    /*  if (!regexp.test(socialseq))
+      {
+        const myElement = document.getElementById("s-number")
+        myElement.style.color = "red";
+        return (false)
+      } */
+    else
+
+
+        // alert(JSON.stringify(user))
+        console.log(JSON.stringify(user));
 
     //  var response = fetch('https://els6tc7eroa6blwd2d3pfcprvu0cmjps.lambda-url.us-east-1.on.aws/users/', {
     //     Method: 'POST',
@@ -246,22 +259,22 @@ function onFinished() {
 
     //var url="https://els6tc7eroa6blwd2d3pfcprvu0cmjps.lambda-url.us-east-1.on.aws/users/"
 
-    
+
 
     //var url="https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/"
 
-    if (url){
+    if (url) {
         fetch(url, {
-     
+
             // Adding method type
             method: fmmethod,
             //mode: 'no-cors',
-             
+
             // Adding body or contents to send
             body: JSON.stringify(user),
-        
+
             //credentials: 'include',
-             //'Access-Control-Allow-Credentials': true,
+            //'Access-Control-Allow-Credentials': true,
             // Adding headers to the request
             headers: {
                 'Content-Type': 'application/json',
@@ -269,29 +282,28 @@ function onFinished() {
                 'Access-Control-Allow-Headers': "*",
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': fmmethod
-              },
-            
+            },
+
         })
-         
-        // Converting to JSON
-        //.then(response => response.json())
-         
-        // Displaying results to console
-        .then(res => 
-            {
-                if(res.status == 200 || res.status == 201) {
-                   window.location.href = "index.html";
+
+            // Converting to JSON
+            //.then(response => response.json())
+
+            // Displaying results to console
+            .then(res => {
+                if (res.status == 200 || res.status == 201) {
+                    window.location.href = "index.html";
                 }
                 console.log(res);
             }
-            
-        ) 
-        
-        }
-        
+
+            )
+
     }
 
-    
+}
+
+
 
 
 
