@@ -10,7 +10,51 @@ window.onbeforeunload = function () {
 
 function onPageLoad() {
 
-    var data = ""
+   var data = ""
+// Extract the id value in JavaScript
+var searchParams = new URLSearchParams(window.location.search);
+var token = searchParams.get("id");
+//console.log('passedVariable:',token);
+if(token !== null){
+    var url2 = 'https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/getLeadsById/'
+       
+  
+        fetch(url2 + token)
+            .then((response) => {
+                console.log(response.status)
+                if (response.status === 404) {
+                   console.log('something went wrong!')
+                } else if (response.status === 200) {
+                    response.json().then((data) => {
+                        console.log('jk:',data[0])
+                        document.getElementById("rev-code").value = data[0].contactid;
+        document.getElementById("fname").value = data[0].first_name;
+        document.getElementById("mname").value = data[0].middle_name;
+        document.getElementById("lname").value = data[0].last_name;
+        document.getElementById("email").value = data[0].user_email;
+        document.getElementById("phone").value = data[0].user_phone;
+
+        let timestamp = data[0].user_dob;
+        let currentDate = new Date(timestamp);
+
+        let month = currentDate.getMonth() + 1; // getMonth() returns a 0-based index, so we add 1
+        let day = currentDate.getDate();
+        let year = currentDate.getFullYear();
+        let newmonth = month < 10 ? '0' + month : month;
+        let newday = day < 10 ? '0' + day : day;
+
+        let formattedDate = `${year}-${newmonth}-${newday}`;
+        console.log(formattedDate); // Output: "1-10-2023"
+
+
+        console.log("check date", formattedDate)
+        document.getElementById("dob").value = formattedDate;
+
+                    });
+                }
+            })
+}
+
 
     if (localStorage.getItem("data") !== null) {
         data = JSON.parse(localStorage.getItem("data"));
@@ -224,45 +268,7 @@ function onFinished() {
         errorElement.style.display = "block";
         return (false)
     }
-
-    /*  if (!regexp.test(socialseq))
-      {
-        const myElement = document.getElementById("s-number")
-        myElement.style.color = "red";
-        return (false)
-      } */
-    else
-
-
-        // alert(JSON.stringify(user))
-        console.log(JSON.stringify(user));
-
-    //  var response = fetch('https://els6tc7eroa6blwd2d3pfcprvu0cmjps.lambda-url.us-east-1.on.aws/users/', {
-    //     Method: 'POST',
-    //     Headers: {
-    //       Accept: 'application.json',
-    //       'Content-Type': 'application/json'
-    //     },
-    //     Body: user,
-    //     Cache: 'default'
-    //   })
-
-
-    // fetch('https://els6tc7eroa6blwd2d3pfcprvu0cmjps.lambda-url.us-east-1.on.aws/users', {
-    //     Method: 'POST',
-    //     Body: JSON.stringify(user)
-    // }).then((response) => {
-    //     return response.json()
-    // }).then(function (data) {
-    //     console.log(data)
-    // }).catch(error => console.error('Error:', error));
-
-    //var url="https://els6tc7eroa6blwd2d3pfcprvu0cmjps.lambda-url.us-east-1.on.aws/users/"
-
-
-
-    //var url="https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/"
-
+    
     if (url) {
         fetch(url, {
 
@@ -302,10 +308,6 @@ function onFinished() {
     }
 
 }
-
-
-
-
 
 function generateRandomString(length) {
     var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
