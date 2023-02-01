@@ -683,18 +683,18 @@ p.code-txt {
 ::-webkit-input-placeholder {
   /* Edge */
   opacity: 1;
-  color: #030303;
+  color: #a7a3a3;
 }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   opacity: 1;
-  color: #030303;
+  color: #a7a3a3;
 }
 
 ::placeholder {
   opacity: 1;
-  color: #030303;
+  color: #a7a3a3;
 }
 input#rev-code {
   background: #eef5ff !important;
