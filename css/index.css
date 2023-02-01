@@ -46,7 +46,7 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 70px 0px 160px 0px;
+    padding: 70px 0px 120px 0px;
   }
   .spacer {
     min-height: 0px;
@@ -277,7 +277,7 @@ p.box-content {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 160px 0px 160px 0px;
+  padding: 85px 0px 100px 0px;
 }
 h2.card-heading {
   font-size: 40px;
@@ -380,7 +380,7 @@ h3.two-col-subheading {
 
 /* form area */
 .quote-area {
-  padding: 208px 0px 70px 0px;
+  padding: 100px 0px 70px 0px;
   background: #0b72f1;
 }
 .quote-area-lists {
@@ -405,7 +405,7 @@ h3.quote-subheading {
   font-weight: bold;
 }
 h2.quote-heading {
-  font-size: 48px;
+  font-size: 45px;
   line-height: 58px;
   color: #ffffff;
   font-weight: bold;
@@ -519,14 +519,14 @@ h3.testimonial-subheading {
 
 /* counter */
 .counts {
-  max-width: 1129px;
+  /* max-width: 1129px; */ 
   margin: auto;
-  margin-top: 120px;
+  margin-top: 50px;
 }
 
 .custom-col {
-  margin: 14px 14px 14px 14px;
-  padding: 28px 52px 28px 52px;
+  /* margin: 14px 14px 14px 14px;
+  padding: 28px 52px 28px 52px;*/
   background-color: #c1ddff;
   border-radius: 7px 7px 7px 7px;
   transition: box-shadow 0.3s;
@@ -913,7 +913,7 @@ button#prevBtn:before {
 /* footer */
 
 .footer {
-  padding: 40px 0px 200px 0px;
+  padding: 40px 0px 100px 0px;
   background-color: #f0f7ff;
 }
 img.footer-logo {
