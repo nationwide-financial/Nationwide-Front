@@ -260,14 +260,6 @@ function onFinished() {
         "user_s_number": socialseq,
         "user_dob": dob,
     }
-
-    regexp = /^(?!000|666)[0-8][0-9]{2}-(?!00)[0-9]{2}-(?!0000)[0-9]{4}$/;
-    if (!regexp.test(socialseq)) {
-        var errorElement = document.getElementById("card-errors");
-        errorElement.textContent = "Invalid Social Security Number.Please enter in format xxx-xx-xxxx ";
-        errorElement.style.display = "block";
-        return (false)
-    }
     
     if (url) {
         fetch(url, {
