@@ -179,7 +179,7 @@ function onFinished() {
     var score = document.getElementById("score").checked;
     if (!score) {
         var errorElement = document.getElementById("card-errors4");
-        errorElement.textContent = "Please select concent.";
+        errorElement.textContent = "Please select consent.";
         errorElement.style.display = "block";
         document.getElementById("score").focus();
         return
