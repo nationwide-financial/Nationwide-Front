@@ -17,7 +17,7 @@ var token = searchParams.get("id");
 //console.log('passedVariable:',token);
 if(token !== null){
     var url2 = 'https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/getLeadsById/'
-       
+    
   
         fetch(url2 + token)
             .then((response) => {
@@ -29,10 +29,24 @@ if(token !== null){
                         console.log('jk:',data[0])
                         document.getElementById("rev-code").value = data[0].contactid;
         document.getElementById("fname").value = data[0].first_name;
-        document.getElementById("mname").value = data[0].middle_name;
+        localStorage.setItem("middle_name", data[0].middle_name);
+        //document.getElementById("mname").value = data[0].middle_name;
         document.getElementById("lname").value = data[0].last_name;
         document.getElementById("email").value = data[0].user_email;
         document.getElementById("phone").value = data[0].user_phone;
+          // Step Two
+        document.getElementById("income").value = data[0].user_income;
+        document.getElementById("form-field-loan").value = data[0].user_loan_amount;
+        document.getElementById("form-field-loan_purpose").value = data[0].user_loan_purpose;
+
+        //Step Three
+        document.getElementById("address").value = data[0].user_address_one;
+        document.getElementById("city").value = data[0].stdaddr_citynme;
+        document.getElementById("zip").value = data[0].stdaddr_zipcde;
+        document.getElementById("state").value = data[0].stdaddr_statecde;
+
+        //Step Four
+        document.getElementById("s-number").value = data[0].user_s_number;
 
         let timestamp = data[0].user_dob;
         let currentDate = new Date(timestamp);
@@ -67,7 +81,8 @@ if(token !== null){
         //step One
         document.getElementById("rev-code").value = data[0].contactid;
         document.getElementById("fname").value = data[0].first_name;
-        document.getElementById("mname").value = data[0].middle_name;
+        localStorage.setItem("middle_name", data[0].middle_name);
+        //document.getElementById("mname").value = data[0].middle_name;
         document.getElementById("lname").value = data[0].last_name;
         document.getElementById("email").value = data[0].user_email;
         document.getElementById("phone").value = data[0].user_phone;
@@ -112,7 +127,8 @@ if(token !== null){
             // localStorage.removeItem("user")
             document.getElementById("rev-code").value = userDataNew.contact_id;
             document.getElementById("fname").value = userDataNew.data.first_name;
-            document.getElementById("mname").value = userDataNew.data.middle_name;
+            localStorage.setItem("middle_name", userDataNew.data.middle_name);
+            //document.getElementById("mname").value = userDataNew.data.middle_name;
             document.getElementById("lname").value = userDataNew.data.last_name;
             document.getElementById("email").value = userDataNew.data.user_email;
             document.getElementById("phone").value = userDataNew.data.user_phone;
@@ -121,7 +137,6 @@ if(token !== null){
 }
 
 var url = "https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/"
-
 
 function getReservationCode() {
     var revCode = document.getElementById("rev-code").value;
@@ -149,7 +164,8 @@ function getReservationCode() {
                     response.json().then((data) => {
                         document.getElementById("rev-code").value = data[0].contactid;
                         document.getElementById("fname").value = data[0].first_name;
-                        document.getElementById("mname").value = data[0].middle_name;
+                        localStorage.setItem("middle_name", data[0].middle_name);
+                        //document.getElementById("mname").value = data[0].middle_name;
                         document.getElementById("lname").value = data[0].last_name;
                         document.getElementById("email").value = data[0].user_email;
                         document.getElementById("phone").value = data[0].user_phone;
@@ -163,7 +179,7 @@ function onFinished() {
     var score = document.getElementById("score").checked;
     if (!score) {
         var errorElement = document.getElementById("card-errors4");
-        errorElement.textContent = "Click the accept button.";
+        errorElement.textContent = "Please select concent.";
         errorElement.style.display = "block";
         document.getElementById("score").focus();
         return
@@ -175,10 +191,9 @@ function onFinished() {
     var fname = document.getElementById("fname").value;
     // var fname = localStorage.getItem("fistName");
     var lname = document.getElementById("lname").value;
-    //  var middleName = document.getElementById("middleName").value;    
-    var middleName = document.getElementById("mname").value;
-    console.log("Middle Name>>>>", middleName)
-    var fullName = fname + " " + middleName + " " + lname;
+    var middleName = localStorage.getItem("middle_name") || "";
+    console.log('middleName:',middleName)
+    var fullName = fname+" "+middleName+" "+lname;
     var email = document.getElementById("email").value;
     var phone = document.getElementById("phone").value;
 
@@ -198,7 +213,8 @@ function onFinished() {
 
     //Step four
     var socialseq = document.getElementById("s-number").value;
-    var dob = document.getElementById("dob").value;
+    var dob = document.getElementById("dob").value || new Date();
+
 
     var id = generateRandomString(5);
     var postid = "";

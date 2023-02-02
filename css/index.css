@@ -277,7 +277,7 @@ p.box-content {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 85px 0px 100px 0px;
+  padding: 55px 0px 100px 0px;
 }
 h2.card-heading {
   font-size: 40px;
@@ -380,7 +380,7 @@ h3.two-col-subheading {
 
 /* form area */
 .quote-area {
-  padding: 100px 0px 70px 0px;
+  padding: 80px 0px 70px 0px;
   background: #0b72f1;
 }
 .quote-area-lists {
@@ -683,18 +683,18 @@ p.code-txt {
 ::-webkit-input-placeholder {
   /* Edge */
   opacity: 1;
-  color: #030303;
+  color: #a7a3a3;
 }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   opacity: 1;
-  color: #030303;
+  color: #a7a3a3;
 }
 
 ::placeholder {
   opacity: 1;
-  color: #030303;
+  color: #a7a3a3;
 }
 input#rev-code {
   background: #eef5ff !important;
@@ -913,7 +913,7 @@ button#prevBtn:before {
 /* footer */
 
 .footer {
-  padding: 40px 0px 100px 0px;
+  padding: 40px 0px 50px 0px;
   background-color: #f0f7ff;
 }
 img.footer-logo {
@@ -1024,7 +1024,7 @@ p.declimer {
     width: 34%;
   }
   .social-share {
-    text-align: center;
+    /* text-align: center; */
     margin-top: 20px;
   }
   h3.counter-title {
