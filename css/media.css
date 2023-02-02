@@ -1,3 +1,15 @@
+.card-sucess {
+    color: rgb(9, 126, 44);
+    border-radius: 15px;
+    display: none;
+    padding: 15px 15px 15px 15px;
+    margin: auto;
+    background: border-box;
+    vertical-align: middle;
+    text-align: center; 
+    background-color: #8ff39291;
+}
+
 
 .menu-icon img{
     width: 25px;

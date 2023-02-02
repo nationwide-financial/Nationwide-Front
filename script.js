@@ -1,3 +1,16 @@
+
+window.onbeforeunload = function () {
+    document.getElementById("code").value = "";
+    document.getElementById("name").value = "";
+    document.getElementById("number").value = "";
+    document.getElementById("email").value = "";
+    };
+
+// function onPageLoad() {
+//     document.getElementById("card-sucess").style.display = "block";
+// }
+
+
 function onSubmit(event) {
     event.preventDefault()
     var code = document.getElementById("code").value;
@@ -114,13 +127,33 @@ function onSubmit(event) {
                 .then(data => {
                     localStorage.setItem("userDataNew", JSON.stringify(data));
                     //console.log("This saved in>>", data)
-                    window.location.href = "form.html";
+                    setTimeout(() => {
+                        const box = document.getElementById('card-sucess');
+                      
+                        // 👇️ removes element from DOM
+                        box.style.display = 'block';
+                        const myTimeout = setTimeout(msgDisplay, 3500);
+                        // 👇️ hides element (still takes up space on page)
+                        // box.style.visibility = 'hidden';
+                      }, 5000); // 👈️ time in milliseconds
+                    //window.location.href = "index.html";
                 }) 
         }
     }
   
     
 }
+
+function msgDisplay() {
+    const disbox = document.getElementById('card-sucess');
+    disbox.style.display = 'none';
+    const dissapermesg = document.getElementById("card-errors");
+    dissapermesg.style.display = 'none';
+    document.getElementById("code").value = "";
+    document.getElementById("name").value = "";
+    document.getElementById("number").value = "";
+    document.getElementById("email").value = "";
+  }
 
 function generateRandomString(length) {
     var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
