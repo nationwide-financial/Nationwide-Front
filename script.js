@@ -9,6 +9,7 @@ function onSubmit(event) {
     if (code !== "") {
         var url = 'https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/users/'
        
+       
   
         fetch(url + code)
             .then((response) => {
@@ -42,10 +43,10 @@ function onSubmit(event) {
         //var postid = generateRandomString(5);
         if (email == ""){ 
             var errorElement = document.getElementById("card-errors");
-              errorElement.textContent = "required*";
+              errorElement.textContent = "email is required*";
               errorElement.style.display = "block";
               return 
-            }else if(phone == ""){
+            }else /* if(phone == ""){
                 { 
             var errorElement = document.getElementById("card-errors1");
               errorElement.textContent = "required*";
@@ -57,7 +58,7 @@ function onSubmit(event) {
               errorElement.textContent = "required*";
               errorElement.style.display = "block";
               return (false)}
-              }else
+              }else */
         
         // if (confirm("Data Saved!")) {
         //         window.location.href = "index.html";

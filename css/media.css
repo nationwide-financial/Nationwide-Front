@@ -203,6 +203,10 @@ h2.loan-title {
 
 }
 @media only screen and (max-width: 600px) {
+    .top-col-button{
+        padding-right: 10%;
+    }
+
     a.button-link {
         font-size: 10px;
         font-weight: 700;
@@ -315,6 +319,10 @@ h2.loan-title {
 }
 
 @media only screen and (max-width: 1024px) and (min-width: 768px) {
+
+    .top-col-button{
+        padding-left: 20%;
+    }
 
     .hero .col-lg-5.col-new1,
     .hero .col-lg-7.col-new2
