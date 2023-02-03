@@ -14,7 +14,11 @@
     max-width: 22vw;
   }
 }
-
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+    border: 1px solid #81817e !important; 
+    background: #7cb0e9 !important;
+    color: white !important;
+}
 @media only screen and (max-width: 660px) {
   a.button-link {
     font-size: 8px;
@@ -410,6 +414,11 @@ h2.quote-heading {
   color: #ffffff;
   font-weight: bold;
 }
+.form-submit-after {
+  background: #ffffff;
+  border-radius: 20px;
+  display: none;
+}
 .form-area {
   background: #ffffff;
   border-radius: 20px;
@@ -458,6 +467,18 @@ p.form-txt {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  color: #000000;
+  text-align: center;
+  margin-top: 15px;
+}
+
+p.form-txt-para {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
   font-size: 12px;
   line-height: 15px;
   text-align: center;

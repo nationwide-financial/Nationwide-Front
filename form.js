@@ -5,69 +5,69 @@ var dob = 0;
 
 window.onbeforeunload = function () {
     localStorage.clear();
-    };
+};
 
 
 function onPageLoad() {
 
-   var data = ""
-// Extract the id value in JavaScript
-var searchParams = new URLSearchParams(window.location.search);
-var token = searchParams.get("id");
-//console.log('passedVariable:',token);
-if(token !== null){
-    var url2 = 'https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/getLeadsById/'
-    
-  
+    var data = ""
+    // Extract the id value in JavaScript
+    var searchParams = new URLSearchParams(window.location.search);
+    var token = searchParams.get("id");
+    //console.log('passedVariable:',token);
+    if (token !== null) {
+        var url2 = 'https://71lvgmcupd.execute-api.us-east-1.amazonaws.com/getLeadsById/'
+
+
         fetch(url2 + token)
             .then((response) => {
                 console.log(response.status)
                 if (response.status === 404) {
-                   console.log('something went wrong!')
+                    console.log('something went wrong!')
                 } else if (response.status === 200) {
                     response.json().then((data) => {
-                        console.log('jk:',data[0])
+                        console.log('jk:', data[0])
                         document.getElementById("rev-code").value = data[0].contactid;
-        document.getElementById("fname").value = data[0].first_name;
-        localStorage.setItem("middle_name", data[0].middle_name);
-        //document.getElementById("mname").value = data[0].middle_name;
-        document.getElementById("lname").value = data[0].last_name;
-        document.getElementById("email").value = data[0].user_email;
-        document.getElementById("phone").value = data[0].user_phone;
-          // Step Two
-        document.getElementById("income").value = data[0].user_income;
-        document.getElementById("form-field-loan").value = data[0].user_loan_amount;
-        document.getElementById("form-field-loan_purpose").value = data[0].user_loan_purpose;
+                        document.getElementById("fname").value = data[0].first_name;
+                        localStorage.setItem("middle_name", data[0].middle_name);
+                        //document.getElementById("mname").value = data[0].middle_name;
+                        document.getElementById("lname").value = data[0].last_name;
+                        document.getElementById("email").value = data[0].user_email;
+                        document.getElementById("phone").value = data[0].user_phone;
+                        // Step Two
+                        document.getElementById("income").value = data[0].user_income;
+                        document.getElementById("form-field-loan").value = data[0].user_loan_amount;
+                        document.getElementById("form-field-loan_purpose").value = data[0].user_loan_purpose;
 
-        //Step Three
-        document.getElementById("address").value = data[0].user_address_one;
-        document.getElementById("city").value = data[0].stdaddr_citynme;
-        document.getElementById("zip").value = data[0].stdaddr_zipcde;
-        document.getElementById("state").value = data[0].stdaddr_statecde;
+                        //Step Three
+                        document.getElementById("address").value = data[0].user_address_one;
+                        document.getElementById("city").value = data[0].stdaddr_citynme;
+                        document.getElementById("zip").value = data[0].stdaddr_zipcde;
+                        document.getElementById("state").value = data[0].stdaddr_statecde;
 
-        //Step Four
-        document.getElementById("s-number").value = data[0].user_s_number;
+                        //Step Four
+                        document.getElementById("s-number").value = data[0].user_s_number;
 
-        let timestamp = data[0].user_dob;
-        let currentDate = new Date(timestamp);
+                        let timestamp = data[0].user_dob;
+                        let currentDate = new Date(timestamp);
 
-        let month = currentDate.getMonth() + 1; // getMonth() returns a 0-based index, so we add 1
-        let day = currentDate.getDate();
-        let year = currentDate.getFullYear();
-        let newmonth = month < 10 ? '0' + month : month;
-        let newday = day < 10 ? '0' + day : day;
+                        let month = currentDate.getMonth() + 1; // getMonth() returns a 0-based index, so we add 1
+                        let day = currentDate.getDate();
+                        let year = currentDate.getFullYear();
+                        let newmonth = month < 10 ? '0' + month : month;
+                        let newday = day < 10 ? '0' + day : day;
 
-        let formattedDate = `${year}-${newmonth}-${newday}`;
-        console.log(formattedDate); // Output: "1-10-2023"
+                        let formattedDate = `${year}-${newmonth}-${newday}`;
+                        console.log(formattedDate); // Output: "1-10-2023"
 
 
-        console.log("check date", formattedDate)
-        document.getElementById("dob").value = formattedDate;
+                        console.log("check date", formattedDate)
+                        document.getElementById("dob").value = formattedDate;
 
                     });
                 }
             })
-}
+    }
 
 
     if (localStorage.getItem("data") !== null) {
@@ -176,6 +176,19 @@ function getReservationCode() {
 }
 
 function onFinished() {
+
+    var socialNumber = document.getElementById("s-number").value;
+    if (!socialNumber) {
+        var errorElement = document.getElementById("card-errors");
+        errorElement.textContent = "Please Provide Social Security Number";
+        errorElement.style.display = "block";
+        document.getElementById("s-number").focus();
+        return;
+    } else {
+        var errorElement = document.getElementById("card-errors");
+        errorElement.style.display = "none";
+    }
+
     var score = document.getElementById("score").checked;
     if (!score) {
         var errorElement = document.getElementById("card-errors4");
@@ -184,6 +197,8 @@ function onFinished() {
         document.getElementById("score").focus();
         return
     }
+
+
     // alert("finished")
     var contactId = document.getElementById("rev-code").value;
 
@@ -192,8 +207,8 @@ function onFinished() {
     // var fname = localStorage.getItem("fistName");
     var lname = document.getElementById("lname").value;
     var middleName = localStorage.getItem("middle_name") || "";
-    console.log('middleName:',middleName)
-    var fullName = fname+" "+middleName+" "+lname;
+    console.log('middleName:', middleName)
+    var fullName = fname + " " + middleName + " " + lname;
     var email = document.getElementById("email").value;
     var phone = document.getElementById("phone").value;
 

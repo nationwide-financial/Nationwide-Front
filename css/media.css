@@ -1,15 +1,22 @@
 .card-sucess {
-    color: rgb(9, 126, 44);
+    color: rgb(0, 0, 0);
     border-radius: 15px;
-    display: none;
-    padding: 15px 15px 15px 15px;
+    display: block;
+    padding: 5px 15px 5px 5px;
     margin: auto;
     background: border-box;
-    vertical-align: middle;
+    /* vertical-align: middle; */
     text-align: center; 
-    background-color: #8ff39291;
+    background-color: #ffffff;
 }
 
+
+
+h4.card-sucess{
+line-height: 25px;
+color: #000;
+font-weight: 400;
+}
 
 .menu-icon img{
     width: 25px;
@@ -187,7 +194,7 @@ h2.loan-title {
 }
 
     .spacer {
-        min-height: 0px;
+        min-height: 800px;
     }
 
     .phone-1 {
@@ -270,7 +277,7 @@ h2.loan-title {
 }
 
     .spacer {
-        min-height: 0px;
+        min-height: 500px;
     }
 
     .phone-1 {

@@ -128,11 +128,13 @@ function onSubmit(event) {
                     localStorage.setItem("userDataNew", JSON.stringify(data));
                     //console.log("This saved in>>", data)
                     setTimeout(() => {
-                        const box = document.getElementById('card-sucess');
+                        const box = document.getElementById('form-submit-after');
                       
                         // 👇️ removes element from DOM
                         box.style.display = 'block';
-                        const myTimeout = setTimeout(msgDisplay, 3500);
+                        const dissapermesg = document.getElementById("form-submit-getstatred");
+                        dissapermesg.style.display = 'none';
+                        const myTimeout = setTimeout(msgDisplay, 4000);
                         // 👇️ hides element (still takes up space on page)
                         // box.style.visibility = 'hidden';
                       }, 5000); // 👈️ time in milliseconds
@@ -145,10 +147,14 @@ function onSubmit(event) {
 }
 
 function msgDisplay() {
-    const disbox = document.getElementById('card-sucess');
+    const disbox = document.getElementById('form-submit-after');
     disbox.style.display = 'none';
-    const dissapermesg = document.getElementById("card-errors");
-    dissapermesg.style.display = 'none';
+
+    //Form Area
+    const dissapermesgshow = document.getElementById("form-submit-getstatred");
+    dissapermesgshow.style.display = 'block';
+    const mailerromsg = document.getElementById("card-errors");
+    mailerromsg.style.display = 'none';
     document.getElementById("code").value = "";
     document.getElementById("name").value = "";
     document.getElementById("number").value = "";
