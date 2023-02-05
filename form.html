@@ -17,7 +17,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="form.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.0/jquery-migrate.min.js"></script> -->
-
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $( function() {
+	    $( "#dob" ).datepicker({
+		changeMonth: true,
+         changeYear: true
+	    });
+    } );
+  </script>
 </head>
 
 <body onload="onPageLoad()">
@@ -148,9 +158,9 @@
                         <div class="box">
                             <label for="">Social Security Number</label>
                             <input type="text"  oninput="this.className = ''" name="s-number" id="s-number" placeholder="xxx-xx-xxxx" title="Invalid Social Security Number">
-                            <p class="paragraph-49" style="color: red;"></p>
+                            <p id="card-errors" class="paragraph-49" style="color: red;"></p>
                             <label for="">D.O.B</label>
-                            <input type="date"  oninput="this.className = ''" name="dob" id="dob">
+                            <input type="text" oninput="this.className = ''" name="dob" id="dob" autocomplete="off">
                             <input type="checkbox" id="score" name="score" value="I give consent to do a soft credit check that
                             won’t impact my credit score.">
                             <label for="vehicle1" class="score-lbl">I give consent to do a soft credit check that

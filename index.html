@@ -100,7 +100,7 @@
                     <div class="container-lg mx-lg-auto top-col-button">
                         <div class="row g-2 mx-2">
                             <!-- <div class="col-xs-5 col-lg-5 col-5 col-md-5 col-new1"> -->
-                            
+
                             <div class="col-6">
                                 <a href="#form" class="hero-btn-1 b-hover chng-lang px-lg-5 phone-new "
                                     data-en="Get My Loan" data-es="Obtener mi préstamo">Get My Loan</a>
@@ -372,40 +372,62 @@
                 </div>
                 <div class="col-lg-1 custom-q-col"></div>
                 <div class="col-lg-5 custom-q-col">
-                    <div class="form-area" id="form">
-                        <h2 class="form-area-heading text-center chng-lang" data-en="GET A QUICK, FREE QUOTE"
-                            data-es="Obtenga una cotización rápida y gratuita">GET A QUICK, FREE QUOTE</h2>
-                        <h3 class="form-area-subheading text-center area-lang">Start the conversation.<br>Please fill
-                            out the form below.</h3>
-                        <h3 class="form-area-subheading text-center area-lang-es">Empieza la conversación. Por favor,
-                            rellene el siguiente formulario.</h3>
-                        <form onsubmit="onSubmit(event)" id="form1">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="code"
-                                    placeholder="RESERVATION CODE (optional)" data-toggle="tooltip"
-                                    title="RESERVATION CODE">
-                                <p id="card-errors3" class="paragraph-49" style="color: red;"></p>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="name" placeholder="FULL NAME*"
-                                    data-toggle="tooltip" title="Enter Your Full Name">
-                                <p id="" class="paragraph-49" style="color: red;"></p>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="number" placeholder="PHONE NUMBER*"
-                                    title="Enter valid phone number">
-                                <p id="" class="paragraph-49" style="color: red;"></p>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="email" placeholder="PRIMARY EMAIL*"
-                                    data-toggle="tooltip" title="Enter your email">
-                                <p id="card-errors" class="paragraph-49" style="color: red;"></p>
+                    <div id="form-submit-getstatred" class="form-submit-getstatred">
+                        <div class="form-area" id="form">
 
-                            </div>
-                            <button type="submit" class="btn btn-default sbt b-hover">GET STARTED</button>
-                        </form>
-                        <p class="form-txt">*Will not affect your Credit Score.</p>
+                            <h2 class="form-area-heading text-center chng-lang" data-en="GET A QUICK, FREE QUOTE"
+                                data-es="Obtenga una cotización rápida y gratuita">GET A QUICK, FREE QUOTE</h2>
+                            <h3 class="form-area-subheading text-center area-lang">Start the conversation.<br>Please
+                                fill
+                                out the form below.</h3>
+                            <h3 class="form-area-subheading text-center area-lang-es">Empieza la conversación. Por
+                                favor,
+                                rellene el siguiente formulario.</h3>
+                            <form onsubmit="onSubmit(event)" id="form1">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="code"
+                                        placeholder="RESERVATION CODE (optional)" data-toggle="tooltip"
+                                        title="RESERVATION CODE">
+                                    <p id="card-errors3" class="paragraph-49" style="color: red;"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="name" placeholder="FULL NAME*"
+                                        data-toggle="tooltip" title="Enter Your Full Name">
+                                    <p id="" class="paragraph-49" style="color: red;"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="number" placeholder="PHONE NUMBER*"
+                                        title="Enter valid phone number">
+                                    <p id="" class="paragraph-49" style="color: red;"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email" placeholder="PRIMARY EMAIL*"
+                                        data-toggle="tooltip" title="Enter your email">
+                                    <p id="card-errors" class="paragraph-49" style="color: red;"></p>
+
+                                </div>
+                                <button type="submit" class="btn btn-default sbt b-hover mb-3">GET STARTED</button>
+
+                            </form>
+                            <p class="form-txt">*Will not affect your Credit Score.</p>
+                            <p class="form-txt-para">By Clicking “GET STARTED” you authorize – with respect to the telephone number provided above and any 
+                                other telephone number associated or related to you that may be provided to us in the future – 
+                                Lunna Loans can contact you by phone, text, email, mail, or by artificial or pre-recorded voice, 
+                                even if you have listed yourself on any Do-Not-Call List.</p>
+                        </div>
                     </div>
+                    <div id="form-submit-after" class="form-submit-after form-area">
+                        <span style="display: block; padding-top: 45%; padding-bottom: 40%;">
+                        <h4 class="card-sucess text-center area-lang-es"><strong>Thank You for Getting Started,<br>
+                                                                                Please Confirm your Email!</strong></h4>    
+                        <p id="card-sucess" class="card-sucess">We have emailed you a confirmartion link.
+                                                                Onece you confirm your email you can continue with your application</p>
+                        </span>
+                    </div>
+
+
+
+
                 </div>
 
             </div>
