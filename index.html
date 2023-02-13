@@ -34,13 +34,53 @@
     <link href="images/Lunna-Webclip.png" rel="apple-touch-icon">
 </head>
 <style>
-    /* @media only screen and (max-width: 600px){
-.cards {
-    padding: 70px 0px 100px 0px;
-}
+
+@media only screen and (min-width: 768px){
+    .home_button_style{
+  width: 100%;
+  margin-right: 0px;
+  margin-left: 0px;
+
+  /* padding-right: 0px;
+  margin-right: 0px; */
 }
 
-.counts {
+a.hero-btn-2 {
+    margin-left: 0px;
+    margin-bottom: 10px;
+
+}
+.top-col-button{
+    padding-right:0px;
+    padding-left: 0px;
+}
+
+}
+    @media only screen and (max-width: 600px){
+/* .cards {
+    padding: 70px 0px 100px 0px;
+} */
+.home_button_style{
+  width: 100%;
+  margin-right: 0px;
+  margin-left: 0px;
+
+  /* padding-right: 0px;
+  margin-right: 0px; */
+}
+
+a.hero-btn-2 {
+    margin-left: 0px;
+    margin-bottom: 10px;
+
+}
+.top-col-button{
+    padding-right:0px;
+}
+
+    }
+
+/* .counts {
 
     margin-top: 90px;
 
@@ -51,6 +91,36 @@
         font-size: 15px;
         font-weight: bold;
     }
+
+    .form_inside_Style{
+        display: flex;
+        justify-content: left;
+    }
+    .bg_stactic_size_style{
+      
+        min-width: 300px;
+        display: flex;
+        justify-content: left;
+    }
+    .bg_stactic_size_style_ES{
+        min-width: 300px;
+        display: flex;
+        justify-content: left;
+    }
+
+    .home_button_style{
+        min-width: 220px ;
+        min-height: 25px;
+        text-align: center;
+
+    }
+
+    /* .home_btn */
+
+    /* .special{
+        background-color: aqua;
+    } */
+
 </style>
 
 <body>
@@ -66,14 +136,14 @@
                     <div class="phone">
                         <a href="">
                             <span class="phone-bg "><img src="images/phone.svg" alt="" class="phone-1"></span>
-                            <span class="phone-txt">1-866-780-0274</span>
+                            <span class="phone-txt">1-888-337-2921</span>
                         </a>
                     </div>
                 </div>
                 <div class="col-2  text-sm-center text-center">
-                    <select class="goog-te-combo">
-                        <option value="en">EN</option>
-                        <option value="es">ES</option>
+                    <select class="goog-te-combo" id="name">
+                        <option value="en"  class="btn_select">EN</option>
+                        <option value="es" >ES</option>
                     </select>
                 </div>
                 <div class="col-3 text-center">
@@ -98,19 +168,23 @@
                         data-es="Diga adiós a las deudas de alto interés y estrés y consolide en un pago mensual bajo">
                         Say goodbye to high-interest, high-stress debt & consolidate into one low monthly payment</p>
                     <div class="container-lg mx-lg-auto top-col-button">
-                        <div class="row g-2 mx-2">
+                        <div class="row g-2 mb-1 top-btn-set" >
                             <!-- <div class="col-xs-5 col-lg-5 col-5 col-md-5 col-new1"> -->
-
-                            <div class="col-6">
-                                <a href="#form" class="hero-btn-1 b-hover chng-lang px-lg-5 phone-new "
-                                    data-en="Get My Loan" data-es="Obtener mi préstamo">Get My Loan</a>
+                           <!-- <div style="display: flex; justify-content: space-around;"> -->
+                            <div class=" col-xs-12 col-md-6 ">
+                                <a href="#form" class="hero-btn-1-new b-hover chng-lang  home_button_style"
+                                    data-en="Get My Loan"  data-es="Obtener mi préstamo"  >
+                                    Get My Loan
+                                </a>
                             </div>
                             <!-- <div class="col-xs-5 col-md-7 col-lg-7  col-7 col-new2"> -->
-                            <div class="col-6">
-                                <a href="#form" class="hero-btn-2 b-hover chng-lang"
-                                    data-en="Got a Mail Offer? Click here" data-es="¿Tienes una oferta por correo?">Got
-                                    a Mail Offer? Click here</a>
+                            <div class=" col-xs-12 col-md-6">
+                                <a href="#form" class="hero-btn-2-new b-hover chng-lang home_button_style"
+                                    data-en="Got a Mail Offer? Click here" data-es="¿Tienes una oferta por correo?" >Got
+                                    a Mail Offer? Click here
+                                </a>
                             </div>
+                        <!-- </div> -->
                         </div>
                     </div>
                     <p class="hero-para-1 mt-1 mb-5 chng-lang text-center"
@@ -118,51 +192,58 @@
                         Will not affect your Credit Score</p>
                 </div>
                 <div class="col-lg-7 col-sm-12 text-center">
-                    <a href="#form-col">
-                        <label class="contain-one area-lang" id="checke">Pay Off Credit Cards Fast
+                    <a href="#form" class="form_inside_Style" style="margin-bottom: 10px;">
+                        <button class="button button1 chng-lang" data-en="Get My Loan" data-es="Obtener mi préstamo">
+                            Get My Loan
+                        </button>
+                    </a>
+                    <a href="#form-col " class="form_inside_Style  ">
+                        <label class="contain-one data_1 bg_stactic_size_style area-lang  " id="checke">Pay Off Credit Cards Fast
                             <input type="radio" checked="checked" name="radio">
                             <span class="chkmark"></span>
                         </label>
-                        <label class="contain-one area-lang-es" id="checke" data-en="Pay Off Credit Cards Fast" data-es="Pagar tarjetas de crédito rápido
-                        ">Pagar tarjetas de crédito rápido
+                        <label class="contain-one data_1 bg_stactic_size_style_ES area-lang-es " id="checke" data-en="Pay Off Credit Cards Fast" data-es="Pagar tarjetas de crédito rápido" style="display: none;">Pagar tarjetas de crédito rápido
                             <input type="radio" checked="checked" name="radio">
                             <span class="chkmark"></span>
                         </label>
                     </a>
-                    <a href="#form-col">
-                        <label class="contain-one area-lang">Debt Consolidation
+                    <a href="#form-col" class="form_inside_Style">
+                        <label class="contain-one data_1 bg_stactic_size_style area-lang " id="en">Debt Consolidation
                             <input type="radio" name="radio">
                             <span class="chkmark"></span>
                         </label>
-                        <label class="contain-one area-lang-es">Consolidación de la deuda
-                            <input type="radio" name="radio">
-                            <span class="chkmark"></span>
-                        </label>
-                    </a>
-                    <a href="#form-col">
-                        <label class="contain-one area-lang">Refinance my car
-                            <input type="radio" name="radio">
-                            <span class="chkmark"></span>
-                        </label>
-                        <label class="contain-one area-lang-es">refinanciar mi coche
+                        <label class="contain-one data_1 bg_stactic_size_style_ES area-lang-es " id="es" style="display: none;">Consolidación de la deuda
                             <input type="radio" name="radio">
                             <span class="chkmark"></span>
                         </label>
                     </a>
-                    <a href="#form-col">
-                        <label class="contain-one area-lang">Something else
+                    <a href="#form-col" class="form_inside_Style">
+                        <label class="contain-one data_1 area-lang bg_stactic_size_style">Refinance my car
                             <input type="radio" name="radio">
                             <span class="chkmark"></span>
                         </label>
-                        <label class="contain-one area-lang-es">Algo más
+                        <label class="contain-one data_1 area-lang-es bg_stactic_size_style_ES" style="display: none;">refinanciar mi coche
                             <input type="radio" name="radio">
                             <span class="chkmark"></span>
                         </label>
                     </a>
-                    <a href="#form"><button class="button button1 chng-lang" data-en="Get My Loan"
-                            data-es="Obtener mi préstamo">Get My Loan</button></a>
+                    <a href="#form-col" class="form_inside_Style">
+                        <label class="contain-one data_1 area-lang bg_stactic_size_style">Something else
+                            <input type="radio" name="radio">
+                            <span class="chkmark"></span>
+                        </label>
+                        <label class="contain-one data_1 area-lang-es bg_stactic_size_style_ES" style="display: none;">Algo más
+                            <input type="radio" name="radio">
+                            <span class="chkmark"></span>
+                        </label>
+                    </a>
+                    
 
-                    <div class="hero-img"><img src="images/hero.png" alt=""></div>
+                    <div class="hero-img">
+                        <img src="images/hero.png" alt="" class="area-lang">
+
+                        <img src="images/sp_girl_pic1.png" alt="" class="area-lang-es" style="margin-top: 35px;">
+                    </div>
                 </div>
 
             </div>
@@ -663,6 +744,7 @@
                 </div>
                 <div class="col-lg-3 col-md-3 ">
                     <div class="social-share">
+                        <a href="https://www.google.com/search?q=lunna+loans&sxsrf=AJOqlzUglNBp6dTpg37oHpYLgmIb-66qHg%3A1675796067209&source=hp&ei=Y57iY7auCpn2kPIPk_GD-AI&iflsig=AK50M_UAAAAAY-Ksc01ycze5VBiuW-_Sg3Ki-g7WHBdg&ved=0ahUKEwj267LqioT9AhUZO0QIHZP4AC8Q4dUDCAo&uact=5&oq=lunna+loans&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyBwgAEA0QgAQyBggAEB4QDTIICAAQBRAeEA0yAggmMgUIABCGAzoFCAAQkQI6CwguEIAEELEDEIMBOg4ILhCABBCxAxDHARDRAzoRCC4QgAQQsQMQgwEQxwEQ0QM6EQguEIAEELEDEMcBENEDENQCOggIABCABBCxAzoFCAAQgAQ6CAguEIAEELEDOgsIABCABBCxAxDJAzoLCAAQgAQQsQMQgwE6CggAEIAEEBQQhwI6BQguEIAEOgcIABCABBAKOgoIABCABBCxAxAKOg0IABCABBCxAxCDARAKOg4ILhCxAxCDARDHARDRAzoKCC4QgAQQsQMQCjoQCC4QgAQQsQMQxwEQrwEQCjoICAAQsQMQgwE6CQgAEA0QgAQQCjoICAAQHhANEAo6CAgAEAgQHhANUABY9QhgkApoAHAAeACAAV-IAYwHkgECMTGYAQCgAQE&sclient=gws-wiz#lrd=0x80ea41e833758b81:0xd67a27f5ff4d0a03,1" target="_blank"><img src="images/smooth_google_icon2.svg" alt=""></a>
                         <a href="https://www.facebook.com/Lunna-Loans-107524195585101" target="_blank"><img src="images/Facebook.svg" alt=""></a>
                         <a href="https://www.instagram.com/lunnaloans/" target="_blank"><img src="images/Mask group.svg" alt=""></a>
                     </div>
@@ -671,8 +753,8 @@
             </div>
             <p class="copywrite text-center my-5 chng-lang" data-en="Privacy Policy" data-es="Política de privacidad ">
                 Disclaimer</p>
-            <p class="copywrite text-center chng-lang" data-en="Lunna Loans LLC© 2023. All rights reserved."
-                data-es="Lunna Loans LLC© 2023. Todos los derechos reservados.">Lunna Loans LLC provides loan referral
+            <div class="copywrite text-center area-lang" data-en="Lunna Loans LLC© 2023. All rights reserved."
+                data-es="Lunna Loans LLC© 2023. Todos los derechos reservados."><p class="copywrite ">Lunna Loans LLC provides loan referral
                 services. Loans are not available in all states. Loans will be fulfilled via our preferred network of
                 third-party lenders. Your loan agreement will clearly identify the lender. Lunna Loans LLC has no
                 control over participating third-party lender credit worthiness eligibility criteria. APR/Interest rates
@@ -688,6 +770,31 @@
                 as debt ratio and credit history. Interest rates will vary and are based on lender terms. Ranges from
                 4.95%-36%. All loans may be subject to origination fees ranging from 1% – 5%, of the loan amount, if
                 permitted under applicable state law.</p>
+            </div>
+                <!-- spanish -->
+                <div class="copywrite text-center area-lang-es" data-en="Lunna Loans LLC© 2023. All rights reserved."
+                data-es="Lunna Loans LLC© 2023. Todos los derechos reservados.">
+                <p class="copywrite ">Lunna Loans LLC provides loan referral
+                    services. Loans are not available in all states. Loans will be fulfilled via our preferred network of
+                    third-party lenders. Your loan agreement will clearly identify the lender. Lunna Loans LLC has no
+                    control over participating third-party lender credit worthiness eligibility criteria. APR/Interest rates
+                    will vary depending on individual lender terms. Generally, all individuals applying for credit must be a
+                    U.S. citizen or permanent resident and at least 18 years old. Valid bank account and Social Security
+                    Number/FEIN are required. All loan applications are subject to credit review and approval. You authorize
+                    us to make inquiries and obtain and confirm information about you as we deem appropriate for the purpose
+                    of evaluating your eligibility for this extension of credit, including obtaining credit reports,
+                    verifying your income. You also authorize us to provide identification information about you, and our
+                    credit experience information with you to others in accordance with applicable law. *Annual Percentage
+                    Rates. Not all borrowers will qualify for the same rate when a rate is listed “as low as”. Qualifying
+                    for rates listed “as low as” are based on the borrower’s credit worthiness, which includes factors such
+                    as debt ratio and credit history. Interest rates will vary and are based on lender terms. Ranges from
+                    4.95%-36%. All loans may be subject to origination fees ranging from 1% – 5%, of the loan amount, if
+                    permitted under applicable state law.</p>
+            
+            
+            </div>
+
+             <!-- class="area-lang-es" -->
             <hr />
             <p class="copywrite text-center chng-lang" data-en="Lunna Loans LLC© 2023. All rights reserved."
                 data-es="Lunna Loans LLC© 2023. Todos los derechos reservados.">Lunna Loans LLC© 2023. All rights
@@ -736,12 +843,26 @@
             if (word == "es") {
                 $('.area-lang').hide();
                 $('.area-lang-es').show()
-            } else {
+            }else if(word == "en"){
                 $('.area-lang').show();
+                $('.area-lang-es').hide()
+            } 
+            else {
+                $('.area-lang').hide();
                 $('.area-lang-es').hide()
             }
         });
 
+        // $(document).ready(function(){
+        //     $('#name').on('change',function(){
+        //         $('.data_1').hide()
+
+        //     })
+        // })
+
+
+        const btnEl = document.querySelector('btn_select')
+        btnEl.addEventListener('click',()=>{btnEl.classList.add('special')})
 
 
     </script>

@@ -246,6 +246,35 @@ a.hero-btn-2 {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+a.hero-btn-1-new {
+  font-size: 15px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 20px;
+  background-color: #0b72f1;
+  border-radius: 7px 7px 7px 7px;
+  color: #fff;
+  padding: 16px 35px 16px 35px;
+  display: inline-block;
+  /* margin-bottom: 20px; */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+a.hero-btn-2-new {
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 20px;
+  background-color: #fee91f;
+  border-radius: 7px 7px 7px 7px;
+  color: #393939;
+  padding: 16px 10px 16px 10px;
+  /* margin: 0px 0px 0px 10px; */
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .hero-img img {
   width: 78%;
 }
@@ -580,7 +609,7 @@ p.counter-info {
   box-shadow: 0px 4px 17px 0px rgba(124, 124, 124, 0.5);
 }
 h2.faq-heading {
-  font-size: 64px;
+  font-size: 60px;
   line-height: 78px;
   color: #8f8f8f;
   font-weight: bold;

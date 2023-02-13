@@ -319,6 +319,8 @@ h2.loan-title {
         font-size: 11px;
     }
 
+  
+
     .col-new1  {
         /* width: 35%; */
         display: inline-block;
@@ -349,4 +351,23 @@ h2.loan-title {
         width: auto !important;
 
     }
+}
+
+@media only screen and (max-width: 667px) {
+
+   
+    a.hero-btn-1-new, a.hero-btn-2-new {
+        width: 100%;
+    }
+
+    .top-btn-set{
+        display: inline;
+    }
+
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 768px){
+.top-col-button {
+    padding-left: 0px;
+}
 }
