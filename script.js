@@ -1,6 +1,6 @@
 window.onbeforeunload = function () {
   document.getElementById("code").value = "";
-  document.getElementById("name").value = "";
+  document.getElementById("fname").value = "";
   document.getElementById("number").value = "";
   document.getElementById("email").value = "";
 
@@ -18,7 +18,7 @@ window.onbeforeunload = function () {
 function onSubmit(event) {
   event.preventDefault();
   var code = document.getElementById("code").value;
-  var name = document.getElementById("name").value;
+  var name = document.getElementById("fname").value;
   var number = document.getElementById("number").value;
   var email = document.getElementById("email").value;
   console.log("code", code);
@@ -49,7 +49,7 @@ function onSubmit(event) {
       }
     });
   } else {
-    var fname = document.getElementById("name").value;
+    var fname = document.getElementById("fname").value;
     var { fistName, middleName, lastName, fullName } = getNames(fname);
     var phone = document.getElementById("number").value;
     var email = document.getElementById("email").value;
@@ -156,7 +156,7 @@ function msgDisplay() {
   const mailerromsg = document.getElementById("card-errors");
   mailerromsg.style.display = "none";
   document.getElementById("code").value = "";
-  document.getElementById("name").value = "";
+  document.getElementById("fname").value = "";
   document.getElementById("number").value = "";
   document.getElementById("email").value = "";
 }
