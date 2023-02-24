@@ -257,9 +257,10 @@ h2.loan-title {
 
     select.goog-te-combo {
         border: 0;
-        font-size: 10px;
+        font-size: 20px;
         color: #32373c;
         background: url(../images/globe.png) no-repeat left;
+        margin-right: 5px !important;
         background-size: 12px;
         padding-left: 15px !important;
         width: 60px !important;
