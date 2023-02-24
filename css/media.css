@@ -259,6 +259,7 @@ h2.loan-title {
         border: 0;
         font-size: 20px;
         color: #32373c;
+        /* color: #000 !important; */
         background: url(../images/globe.png) no-repeat left;
         margin-right: 5px !important;
         background-size: 12px;
@@ -483,9 +484,9 @@ h2.loan-title {
                                      /* #itm-logo,#itm-btn,#itm-num2,#itm-lang2{
                                          display: none !important;
                                       } */
-                                    #big-screen  {    background-color: #0B72F1;
+                                    #big-screen  {    background-color: #5b9cea;
                                      
-                                        opacity: 0.5;}
+                                       }
 
                                         #big-screen   #itm-num1,.itm-bg-color{
                                             color: #fff !important;
