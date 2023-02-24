@@ -422,8 +422,14 @@ h2.loan-title {
                     /* #img-with-carasol {
                         display: block !important;
                      } */
-                     #img-without-carasol{
+                     /* #img-without-carasol{
                          display: none !important;
+                      } */
+                      #default-view{
+                        display: none !important;
+                      }
+                      #customize-view{
+                        display: block !important;
                       }
                      }
 
@@ -431,26 +437,57 @@ h2.loan-title {
                         /* #img-with-carasol {
                             display: block !important;
                          } */
-                         #img-without-carasol{
+                         /* #img-without-carasol{
                              display: none !important;
+                          } */
+                          #default-view{
+                            display: none !important;
+                          }
+                          #customize-view{
+                            display: block !important;
                           }
                          }
                          @media only screen and (max-width:912px) {
                             /* #img-with-carasol {
                                 display: block !important;
                              } */
-                             #img-without-carasol{
+                             /* #img-without-carasol{
                                  display: none !important;
+                              } */
+                              #default-view{
+                                display: none !important;
+                              }
+                              #customize-view{
+                                display: block !important;
                               }
                              }
                              @media only screen and (max-width:540px) {
                                 /* #img-with-carasol {
                                     display: block !important;
                                  } */
-                                 #img-without-carasol{
+                                 /* #img-without-carasol{
                                      display: none !important;
+                                  } */
+                                  #default-view{
+                                    display: none !important;
+                                  }
+                                  #customize-view{
+                                    display: block !important;
                                   }
                                  }
             
 
-                 
+                                 @media only screen and (max-width:880px) {
+                                  
+                                     /* #itm-logo,#itm-btn,#itm-num2,#itm-lang2{
+                                         display: none !important;
+                                      } */
+                                    #big-screen  {    background-color: #0B72F1;
+                                     
+                                        opacity: 0.5;}
+
+                                        #big-screen   #itm-num1,#itm-lan1 , .itm-bg-color{
+                                            color: #fff !important;
+                                        }
+                                     }
+                                   
