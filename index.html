@@ -115,7 +115,8 @@ a.hero-btn-2 {
         justify-content: left;
     }
     .bg_stactic_size_style_ES{
-        min-width: 300px;
+        /* min-width: 300px; */
+        min-width: 100%;
         display: flex;
         justify-content: left;
     }
@@ -194,14 +195,12 @@ a.hero-btn-2 {
         </div>
         <div id="customize-view" style="display: none;">
                   <!-- big screen -->
-        <div class="container-fluid" id="big-screen" style="margin: 0; padding: 0;">
+        <div class="container-fluid" id="big-screen" style="margin: 0; padding: 0; background-color: #0B72F1;  opacity: 0.5;">
             <!-- logo -->
             <div class="row align-items-center pt-3  " style="display: flex; justify-content: space-between; padding: 5px;" >
-                <!-- <div class="col-4 text-center" id="itm-logo" >
-                    <a href="index.html" target="_self"><img src="images/Lunna-Loans.png" alt="" class="logo1"></a>
-                </div> -->
+               
                 <!-- num -->
-                <!-- <div style=""></div> -->
+                
                 <div class="col-6  text-sm-center text-center  " >
                     <div class="phone"  style=" padding-left: 20px;">
                         <a href="" id="itm-num1">
@@ -213,17 +212,12 @@ a.hero-btn-2 {
                 </div>
                 <!-- en-lang -->
                 <div class="col-6  text-sm-center text-center"  >
-                    <!-- <img src="../images/globe.png" width="24px" height="24px"> -->
-                    <select class="goog-te-combo itm-bg-color" id="name" id="itm-lan1" style="font-size: 16px ;padding: 0;margin: 0;">
-                        <option value="en"  class="btn_select ">EN</option>
-                        <option value="es" >ES</option>
+                    <select class="goog-te-combo language itm-bg-color itm-lan2" id="name"  style="font-size: 16px ;padding: 0;margin: 0; color: #fff; background-color: #0B72F1;  ">
+                        <option value="en"  class="btn_select " style="color: #fff;  opacity: 0.5;">EN</option>
+                        <option value="es" style="color: #fff;   opacity: 0.5;">ES</option>
                     </select>
                 </div>
-                <!-- btn -->
-                <!-- <div class="col-3 text-center" id="itm-btn">
-                    <a href="#form" class="button-link chng-lang" role="button" data-en="Received Mail Offer?"
-                        data-es="¿Recibió la oferta por correo?">Received Mail Offer?</a>
-                </div> -->
+                
             </div>
         </div>
 
@@ -232,15 +226,15 @@ a.hero-btn-2 {
             <!-- logo -->
             <div class="row align-items-center pt-5 "  style="display: flex; justify-content: space-between; padding: 5px;" >
 
-                <div class="col-6 text-center" id="itm-logo2"  style="display: flex;justify-content: left;  padding-left: 20px;">
+                <div class="col-6 text-center" id="itm-logo2"  style="display: flex;justify-content: left;  padding-left: 25px; ">
                     <a href="index.html" target="_self"><img src="images/Lunna-Loans.png"     width=" 100%";
                         max-width: 100%; alt="" class="logo1"></a>
                 </div>
                
               
                 <!-- btn -->
-                <div class="col-6 text-sm-center text-center" id="itm-btn2"  style="display: flex;justify-content: right;">
-                    <a href="#form"  class="button-link chng-lang" role="button" style="margin-right: 20px;"  data-en="Received Mail Offer?"
+                <div class="col-6 text-sm-center text-center" id="itm-btn2"  style="display: flex;justify-content: right;padding-right: 18px;width: 50%; height: 10%;">
+                    <a href="#form"  class="button-link chng-lang" role="button" style=" text-align: center;padding: 19px 4px; font-size: 14px;"  data-en="Received Mail Offer?"
                         data-es="¿Recibió la oferta por correo?">Received Mail Offer?</a>
                 </div>
             </div>
@@ -1214,6 +1208,33 @@ a.hero-btn-2 {
                 $('.area-lang-es').hide()
             }
         });
+
+        $('.language').change(function () {
+
+var word = $('.language').val();
+let el = $('.chng-lang');
+
+// $('.button-link').attr().show(); 
+
+$.each(el, function (index, item) {
+    let currentel = $(item);
+    let currenttxt = currentel.attr('data-' + word);
+    currentel.text(currenttxt);
+
+})
+
+if (word == "es") {
+    $('.area-lang').hide();
+    $('.area-lang-es').show()
+}else if(word == "en"){
+    $('.area-lang').show();
+    $('.area-lang-es').hide()
+} 
+else {
+    $('.area-lang').hide();
+    $('.area-lang-es').hide()
+}
+});
 
         // $(document).ready(function(){
         //     $('#name').on('change',function(){
