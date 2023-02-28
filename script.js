@@ -49,14 +49,7 @@ function onSubmit(event) {
       } else if (response.status === 200) {
         response.json().then((data) => {
           // var { fistName, middleName, lastName, fullName } = getNames(name);
-          localStorage.setItem("data", JSON.stringify(data));
-          // localStorage.setItem("contactId", data[0].contactid);
-          // localStorage.setItem("fistName", data[0].first_name);
-          // localStorage.setItem("middleName", data[0].middle_name);
-          // localStorage.setItem("lastName", data[0].last_name);
-          // localStorage.setItem("fullName", data[0].combined_name_field);
-          // localStorage.setItem("number", number);
-          // localStorage.setItem("email", email);
+          localStorage.setItem("data", JSON.stringify(data));          
           window.location.href = "form.html";
         });
       }
@@ -81,24 +74,8 @@ function onSubmit(event) {
       errorElement.textContent = "email is required*";
       errorElement.style.display = "block";
       return;
-    } /* if(phone == ""){
-                { 
-            var errorElement = document.getElementById("card-errors1");
-              errorElement.textContent = "required*";
-              errorElement.style.display = "block";
-              return }
-              }else if(fullName == ""){
-                { 
-            var errorElement = document.getElementById("card-errors2");
-              errorElement.textContent = "required*";
-              errorElement.style.display = "block";
-              return (false)}
-              }else */
-
-    // if (confirm("Data Saved!")) {
-    //         window.location.href = "index.html";
-    //     }
-    else
+    }
+    else {
       var user = {
         first_name: fistName,
         middle_name: middleName,
@@ -107,7 +84,7 @@ function onSubmit(event) {
         user_email: email,
         user_phone: phone,
       };
-
+    }
     // alert(JSON.stringify(user))
     //console.log(JSON.stringify(user));
 
@@ -127,17 +104,7 @@ function onSubmit(event) {
           "Access-Control-Allow-Origin": "*",
         },
       })
-        // .then(res => {
-        //     if (res.status === 201) {
-        //         localStorage.setItem("user", JSON.stringify(res.result));
-        //         window.location.href = "form.html";
-        //     } else if (res.status === 200) {
-        //         window.location.href = "form.html";
-        //     }
-        //     console.log("whats inside res>>>", res);
-        // }
 
-        // )
         .then((res) => {
           if (res.status === 201) {
             return res.json();
@@ -152,10 +119,11 @@ function onSubmit(event) {
             const box = document.getElementById("form-submit-after");
             const boxes = document.getElementById("form-submit-after-es");
             const selectedlan = document.getElementById("lnname").value;
-            console.log("This valeu", selectedlan)
+            const selectedlansm = document.getElementById("lnsmname").value;
+            //console.log("This valeu", selectedlan)
 
             // 👇️ removes element from DOM
-            if (selectedlan == "es") {
+            if (selectedlan == "es" || selectedlansm == "es") {
               boxes.style.display = "block";
             } else {
               box.style.display = "block";

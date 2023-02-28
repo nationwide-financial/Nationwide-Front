@@ -259,7 +259,7 @@
                     </div>
                     <!-- en-lang -->
                     <div class="col-6  text-sm-center text-center">
-                        <select class="goog-te-combo language itm-bg-color itm-lan2" id="name"
+                        <select class="goog-te-combo language itm-bg-color itm-lan2" id="lnsmname"
                             style="font-size: 16px ;padding: 0;margin: 0; color: #fff; background-color: #5b9cea;  ">
                             <option value="en" class="btn_select "
                                 style="color: #fff; background-color: rgb(134, 167, 233);">EN</option>
@@ -1231,23 +1231,24 @@
             })
 
             const lnboxes = document.getElementById("form-submit-after-es");
+            lnboxes.style.display = "none";
             const lnbox = document.getElementById("form-submit-after");
 
             if (word == "es") {
                 $('.area-lang').hide();
                 $('.area-lang-es').show()
                 lnbox.style.display = "none";
-                lnboxes.style.display = "block";
+                lnboxes.style.display = "none";
             } else if (word == "en") {
                 $('.area-lang').show();
                 $('.area-lang-es').hide()
-                lnbox.style.display = "block";
+                lnbox.style.display = "none";
                 lnboxes.style.display = "none";
             }
             else {
                 $('.area-lang').hide();
                 $('.area-lang-es').hide()
-                lnbox.style.display = "block";
+                lnbox.style.display = "none";
                 lnboxes.style.display = "none";
             }
         });
