@@ -448,6 +448,11 @@ h2.quote-heading {
   border-radius: 20px;
   display: none;
 }
+.form-submit-after-es {
+  background: #ffffff;
+  border-radius: 20px;
+  display: none;
+}
 .form-area {
   background: #ffffff;
   border-radius: 20px;

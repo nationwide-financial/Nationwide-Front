@@ -3,6 +3,10 @@ window.onbeforeunload = function () {
   document.getElementById("fname").value = "";
   document.getElementById("number").value = "";
   document.getElementById("email").value = "";
+  document.getElementById("code-es").value = "";
+  document.getElementById("fname-es").value = "";
+  document.getElementById("number-es").value = "";
+  document.getElementById("email-es").value = "";
 
   // const test1 = document.getElementsByClassName("area-lang-es");
   // test1.style.display = "none";
@@ -17,10 +21,18 @@ window.onbeforeunload = function () {
 
 function onSubmit(event) {
   event.preventDefault();
-  var code = document.getElementById("code").value;
-  var name = document.getElementById("fname").value;
-  var number = document.getElementById("number").value;
-  var email = document.getElementById("email").value;
+  var codecheck = document.getElementById("code").value;
+  if (codecheck != "") {
+    var code = document.getElementById("code").value;
+    var name = document.getElementById("fname").value;
+    var number = document.getElementById("number").value;
+    var email = document.getElementById("email").value;
+  } else if (codecheck == "") {
+    var code = document.getElementById("code-es").value;
+    var name = document.getElementById("fname-es").value;
+    var number = document.getElementById("number-es").value;
+    var email = document.getElementById("email-es").value;
+  }
   console.log("code", code);
 
   if (code !== "") {
@@ -33,6 +45,7 @@ function onSubmit(event) {
         errorElement.textContent = "Invalid Code";
         errorElement.style.display = "block";
         document.getElementById("code").focus();
+        document.getElementById("code-es").focus();
       } else if (response.status === 200) {
         response.json().then((data) => {
           // var { fistName, middleName, lastName, fullName } = getNames(name);
@@ -49,10 +62,18 @@ function onSubmit(event) {
       }
     });
   } else {
-    var fname = document.getElementById("fname").value;
-    var { fistName, middleName, lastName, fullName } = getNames(fname);
-    var phone = document.getElementById("number").value;
-    var email = document.getElementById("email").value;
+    var fnamecheck = document.getElementById("fname").value;
+    if (fnamecheck != "") {
+      var fname = document.getElementById("fname").value;
+      var { fistName, middleName, lastName, fullName } = getNames(fname);
+      var phone = document.getElementById("number").value;
+      var email = document.getElementById("email").value;
+    } else if (fnamecheck == "") {
+      var fname = document.getElementById("fname-es").value;
+      var { fistName, middleName, lastName, fullName } = getNames(fname);
+      var phone = document.getElementById("number-es").value;
+      var email = document.getElementById("email-es").value;
+    }
 
     //var postid = generateRandomString(5);
     if (email == "") {
@@ -129,9 +150,18 @@ function onSubmit(event) {
           //console.log("This saved in>>", data)
           setTimeout(() => {
             const box = document.getElementById("form-submit-after");
+            const boxes = document.getElementById("form-submit-after-es");
+            const selectedlan = document.getElementById("lnname").value;
+            console.log("This valeu", selectedlan)
 
             // 👇️ removes element from DOM
-            box.style.display = "block";
+            if (selectedlan == "es") {
+              boxes.style.display = "block";
+            } else {
+              box.style.display = "block";
+            }
+
+
             const dissapermesg = document.getElementById(
               "form-submit-getstatred"
             );
@@ -149,6 +179,8 @@ function onSubmit(event) {
 function msgDisplay() {
   const disbox = document.getElementById("form-submit-after");
   disbox.style.display = "none";
+  const disboxes = document.getElementById("form-submit-after-es");
+  disboxes.style.display = "none";
 
   //Form Area
   const dissapermesgshow = document.getElementById("form-submit-getstatred");
@@ -159,6 +191,10 @@ function msgDisplay() {
   document.getElementById("fname").value = "";
   document.getElementById("number").value = "";
   document.getElementById("email").value = "";
+  document.getElementById("code-es").value = "";
+  document.getElementById("fname-es").value = "";
+  document.getElementById("number-es").value = "";
+  document.getElementById("email-es").value = "";
 }
 
 function generateRandomString(length) {
