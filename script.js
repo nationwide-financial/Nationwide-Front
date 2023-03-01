@@ -138,7 +138,7 @@ function onSubmit(event) {
             // 👇️ hides element (still takes up space on page)
             // box.style.visibility = 'hidden';
           }, 5000); // 👈️ time in milliseconds
-          //window.location.href = "index.html";
+          
         });
     }
   }
@@ -162,7 +162,8 @@ function msgDisplay() {
   document.getElementById("code-es").value = "";
   document.getElementById("fname-es").value = "";
   document.getElementById("number-es").value = "";
-  document.getElementById("email-es").value = "";
+  document.getElementById("email-es").value = "";  
+  window.location.href = "index.html";
 }
 
 function generateRandomString(length) {
