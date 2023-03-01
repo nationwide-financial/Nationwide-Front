@@ -3,6 +3,10 @@ window.onbeforeunload = function () {
   document.getElementById("fname").value = "";
   document.getElementById("number").value = "";
   document.getElementById("email").value = "";
+  document.getElementById("code-es").value = "";
+  document.getElementById("fname-es").value = "";
+  document.getElementById("number-es").value = "";
+  document.getElementById("email-es").value = "";
 
   // const test1 = document.getElementsByClassName("area-lang-es");
   // test1.style.display = "none";
@@ -17,10 +21,18 @@ window.onbeforeunload = function () {
 
 function onSubmit(event) {
   event.preventDefault();
-  var code = document.getElementById("code").value;
-  var name = document.getElementById("fname").value;
-  var number = document.getElementById("number").value;
-  var email = document.getElementById("email").value;
+  var codecheck = document.getElementById("code").value;
+  if (codecheck != "") {
+    var code = document.getElementById("code").value;
+    var name = document.getElementById("fname").value;
+    var number = document.getElementById("number").value;
+    var email = document.getElementById("email").value;
+  } else if (codecheck == "") {
+    var code = document.getElementById("code-es").value;
+    var name = document.getElementById("fname-es").value;
+    var number = document.getElementById("number-es").value;
+    var email = document.getElementById("email-es").value;
+  }
   console.log("code", code);
 
   if (code !== "") {
@@ -33,26 +45,28 @@ function onSubmit(event) {
         errorElement.textContent = "Invalid Code";
         errorElement.style.display = "block";
         document.getElementById("code").focus();
+        document.getElementById("code-es").focus();
       } else if (response.status === 200) {
         response.json().then((data) => {
           // var { fistName, middleName, lastName, fullName } = getNames(name);
-          localStorage.setItem("data", JSON.stringify(data));
-          // localStorage.setItem("contactId", data[0].contactid);
-          // localStorage.setItem("fistName", data[0].first_name);
-          // localStorage.setItem("middleName", data[0].middle_name);
-          // localStorage.setItem("lastName", data[0].last_name);
-          // localStorage.setItem("fullName", data[0].combined_name_field);
-          // localStorage.setItem("number", number);
-          // localStorage.setItem("email", email);
+          localStorage.setItem("data", JSON.stringify(data));          
           window.location.href = "form.html";
         });
       }
     });
   } else {
-    var fname = document.getElementById("fname").value;
-    var { fistName, middleName, lastName, fullName } = getNames(fname);
-    var phone = document.getElementById("number").value;
-    var email = document.getElementById("email").value;
+    var fnamecheck = document.getElementById("fname").value;
+    if (fnamecheck != "") {
+      var fname = document.getElementById("fname").value;
+      var { fistName, middleName, lastName, fullName } = getNames(fname);
+      var phone = document.getElementById("number").value;
+      var email = document.getElementById("email").value;
+    } else if (fnamecheck == "") {
+      var fname = document.getElementById("fname-es").value;
+      var { fistName, middleName, lastName, fullName } = getNames(fname);
+      var phone = document.getElementById("number-es").value;
+      var email = document.getElementById("email-es").value;
+    }
 
     //var postid = generateRandomString(5);
     if (email == "") {
@@ -60,24 +74,8 @@ function onSubmit(event) {
       errorElement.textContent = "email is required*";
       errorElement.style.display = "block";
       return;
-    } /* if(phone == ""){
-                { 
-            var errorElement = document.getElementById("card-errors1");
-              errorElement.textContent = "required*";
-              errorElement.style.display = "block";
-              return }
-              }else if(fullName == ""){
-                { 
-            var errorElement = document.getElementById("card-errors2");
-              errorElement.textContent = "required*";
-              errorElement.style.display = "block";
-              return (false)}
-              }else */
-
-    // if (confirm("Data Saved!")) {
-    //         window.location.href = "index.html";
-    //     }
-    else
+    }
+    else {
       var user = {
         first_name: fistName,
         middle_name: middleName,
@@ -86,7 +84,7 @@ function onSubmit(event) {
         user_email: email,
         user_phone: phone,
       };
-
+    }
     // alert(JSON.stringify(user))
     //console.log(JSON.stringify(user));
 
@@ -106,17 +104,7 @@ function onSubmit(event) {
           "Access-Control-Allow-Origin": "*",
         },
       })
-        // .then(res => {
-        //     if (res.status === 201) {
-        //         localStorage.setItem("user", JSON.stringify(res.result));
-        //         window.location.href = "form.html";
-        //     } else if (res.status === 200) {
-        //         window.location.href = "form.html";
-        //     }
-        //     console.log("whats inside res>>>", res);
-        // }
 
-        // )
         .then((res) => {
           if (res.status === 201) {
             return res.json();
@@ -129,9 +117,19 @@ function onSubmit(event) {
           //console.log("This saved in>>", data)
           setTimeout(() => {
             const box = document.getElementById("form-submit-after");
+            const boxes = document.getElementById("form-submit-after-es");
+            const selectedlan = document.getElementById("lnname").value;
+            const selectedlansm = document.getElementById("lnsmname").value;
+            //console.log("This valeu", selectedlan)
 
             // 👇️ removes element from DOM
-            box.style.display = "block";
+            if (selectedlan == "es" || selectedlansm == "es") {
+              boxes.style.display = "block";
+            } else {
+              box.style.display = "block";
+            }
+
+
             const dissapermesg = document.getElementById(
               "form-submit-getstatred"
             );
@@ -140,7 +138,7 @@ function onSubmit(event) {
             // 👇️ hides element (still takes up space on page)
             // box.style.visibility = 'hidden';
           }, 5000); // 👈️ time in milliseconds
-          //window.location.href = "index.html";
+          
         });
     }
   }
@@ -149,6 +147,8 @@ function onSubmit(event) {
 function msgDisplay() {
   const disbox = document.getElementById("form-submit-after");
   disbox.style.display = "none";
+  const disboxes = document.getElementById("form-submit-after-es");
+  disboxes.style.display = "none";
 
   //Form Area
   const dissapermesgshow = document.getElementById("form-submit-getstatred");
@@ -159,6 +159,11 @@ function msgDisplay() {
   document.getElementById("fname").value = "";
   document.getElementById("number").value = "";
   document.getElementById("email").value = "";
+  document.getElementById("code-es").value = "";
+  document.getElementById("fname-es").value = "";
+  document.getElementById("number-es").value = "";
+  document.getElementById("email-es").value = "";  
+  window.location.href = "index.html";
 }
 
 function generateRandomString(length) {

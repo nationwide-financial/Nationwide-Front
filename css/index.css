@@ -93,10 +93,14 @@
     font-size: 2px;
   }
 }
+html{
+  overflow-x: hidden;
+}
 
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
 }
 * {
   margin: 0;
@@ -444,6 +448,11 @@ h2.quote-heading {
   font-weight: bold;
 }
 .form-submit-after {
+  background: #ffffff;
+  border-radius: 20px;
+  display: none;
+}
+.form-submit-after-es {
   background: #ffffff;
   border-radius: 20px;
   display: none;
